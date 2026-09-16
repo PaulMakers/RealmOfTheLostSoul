@@ -35,10 +35,12 @@
 - [ ] Full formula audit completed
 - [ ] All worked examples reconciled against their formulas
 - [ ] LUK/gold modifier examples reconciled
+- [ ] EXP progression formula/target examples reconciled
 - [ ] NPC buy/sell/fallback terminology normalized
 - [ ] Gross/net shop examples reconciled
+- [ ] Merchant Guild ROI example reconciled
 - [x] Open Decision register created in `PHASE 0 AUDIT REPORT.md`
-- [ ] Every open decision has owner, scope, dependency impact, and status verified
+- [x] Every currently registered open decision has owner, scope, dependency impact, and status
 - [ ] Phase 0 validation report updated after all reconciliation work
 
 **Phase 0 status:** IN PROGRESS
@@ -46,7 +48,9 @@
 **Current known audit findings:**
 - Economy LUK formula is `1 + (Player_LUK × 0.1%)`; existing +10/+30 LUK worked examples are arithmetically inconsistent.
 - 20 LUK on 3000 base gold/hour yields 3060 gold/hour under the stated formula, not 3006.
+- `LostSoul.md` EXP examples yield ~6.7 min (Lv 1→2), ~20.5 min (Lv 5→6), and ~50.4 min (Lv 10→11), which do not consistently support its ~1 hour/level early-game claim.
 - Economy contains multiple NPC buy/sell/fallback conventions that require terminology normalization before implementation.
+- Merchant Guild ROI example states ~167000 gold of sales for a 5000g fee at a 2-point tax saving; simple breakeven is ~250000g, so the example requires correction or a defined alternative ROI method.
 - City Content Addendum retains explicit open decisions for trainer placement, Colosseum footprint, quality probability curve, and related pricing confirmation.
 
 **Phase 0 gate:** COMPLETE only when every required audit item above is PASS, all blocking conflicts are resolved or explicitly scoped, all open decisions are registered, and no Roblox Studio build/change has occurred before Phase 1 authorization.
@@ -258,12 +262,3 @@ For each major construction operation:
 - `INSTANCE COUNT:`
 - `FAILURES:`
 - `AUTO-FIXES:`
-- `UNRESOLVED:`
-- `SCREENSHOT EVIDENCE:`
-- `STATUS:`
-
-## Execution invariant
-
-`SPEC → PLAN → TOOL SELECTION → BUILD → INSPECT → MEASURE → EVIDENCE → VALIDATE → REPAIR → RE-VALIDATE → COMMIT`
-
-No Roblox Studio build or implementation is authorized until Phase 0 reaches PASS.
