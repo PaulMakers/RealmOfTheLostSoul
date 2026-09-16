@@ -14,26 +14,26 @@
 
 ## 📖 TABLE OF CONTENTS
 
-1. [GAME OVERVIEW](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#overview)
-2. [CORE DESIGN PILLARS](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#core-design)
-3. [PROGRESSION SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#progression)
-4. [COMBAT & STATS](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#combat)
-5. [SKILL & ELEMENT SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#skills)
-6. [PATH SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#paths)
-7. [WORLD & GEOGRAPHY](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#world)
-8. [MAP STRUCTURE](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#maps)
-9. [ZONES & CONTENT](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#zones)
-10. [MONSTER SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#monsters)
-11. [DUNGEON SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#dungeon)
-12. [PvP & CRIMINAL SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#pvp)
-13. [QUEST SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#quests)
-14. [ECONOMY](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#economy)
-15. [GATHERING & CRAFTING](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#gathering)
-16. [GUILD SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#guilds)
-17. [NPC FRAMEWORK](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#npcs)
-18. [LORE & STORY](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#lore)
-19. [TECHNICAL NOTES](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#technical)
-20. [DEVELOPMENT CHECKLIST](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#checklist)
+1. [GAME OVERVIEW](#overview)
+2. [CORE DESIGN PILLARS](#core-design)
+3. [PROGRESSION SYSTEM](#progression)
+4. [COMBAT & STATS](#combat)
+5. [SKILL & ELEMENT SYSTEM](#skills)
+6. [PATH SYSTEM](#paths)
+7. [WORLD & GEOGRAPHY](#world)
+8. [MAP STRUCTURE](#maps)
+9. [ZONES & CONTENT](#zones)
+10. [MONSTER SYSTEM](#monsters)
+11. [DUNGEON SYSTEM](#dungeon)
+12. [PvP & CRIMINAL SYSTEM](#pvp)
+13. [QUEST SYSTEM](#quests)
+14. [ECONOMY](#economy)
+15. [GATHERING & CRAFTING](#gathering)
+16. [GUILD SYSTEM](#guilds)
+17. [NPC FRAMEWORK](#npcs)
+18. [LORE & STORY](#lore)
+19. [TECHNICAL NOTES](#technical)
+20. [DEVELOPMENT CHECKLIST](#checklist)
 
 ---
 
@@ -98,9 +98,9 @@
 
 - **Max Level:** 150
 - **EXP Formula:** `EXP_to_next = 100 × level^1.8` (rounded) 
-  - Early levels (1-15): Fast progression (\~1 hour per level)
-  - Mid levels (15-75): Moderate grind (\~2-3 hours per level)
-  - Late levels (75-150): Heavy grind (\~5-10+ hours per level)
+  - Early levels (1-15): Fast progression (~1 hour per level)
+  - Mid levels (15-75): Moderate grind (~2-3 hours per level)
+  - Late levels (75-150): Heavy grind (~5-10+ hours per level)
 
 **EXP per Kill (previously undefined — the pacing claims above can't be checked without this):**
 
@@ -110,37 +110,37 @@ EXP per kill = Enemy_Level × 15
 
 **Validation against the pacing targets above:**
 
-| Transition EXP Needed Farming Rank EXP/hr (kills/hr × EXP/kill) Time      |       |                               |                     |          |
-| ------------------------------------------------------------------------- | ----- | ----------------------------- | ------------------- | -------- |
-| Lv 1 → 2                                                                  | 100   | E (Lv1 enemies, 60 kills/hr)  | 60 × 15 = 900/hr    | \~7 min  |
-| Lv 5 → 6                                                                  | 1,540 | E (Lv5 enemies, 60 kills/hr)  | 60 × 75 = 4,500/hr  | \~21 min |
-| Lv 10 → 11                                                                | 6,300 | D (Lv10 enemies, 50 kills/hr) | 50 × 150 = 7,500/hr | \~50 min |
+| Transition | EXP Needed | Farming | EXP/hr | Time |
+|---|---:|---|---:|---:|
+| Lv 1 → 2 | 100 | E (Lv1 enemies, 60 kills/hr) | 60 × 15 = 900/hr | ~7 min |
+| Lv 5 → 6 | 1,540 | E (Lv5 enemies, 60 kills/hr) | 60 × 75 = 4,500/hr | ~21 min |
+| Lv 10 → 11 | 6,300 | D (Lv10 enemies, 50 kills/hr) | 50 × 150 = 7,500/hr | ~50 min |
 
-This roughly holds up the "\~1 hour per level" claim for levels 1-15 — but it's a first-pass constant (K=15), not a guarantee. Treat it as the tuning lever: raise it if leveling feels too slow in playtesting, lower it if too fast. The Mid/Late-game hour estimates above haven't been validated the same way yet (they involve players splitting time between farming, dungeons, and quests, which this simple formula doesn't capture) — worth a follow-up pass once Quest EXP rewards are defined.
+This roughly holds up the "~1 hour per level" claim for levels 1-15 — but it's a first-pass constant (K=15), not a guarantee. Treat it as the tuning lever: raise it if leveling feels too slow in playtesting, lower it if too fast. The Mid/Late-game hour estimates above haven't been validated the same way yet (they involve players splitting time between farming, dungeons, and quests, which this simple formula doesn't capture) — worth a follow-up pass once Quest EXP rewards are defined.
 
 ## Seven Main Stats
 
-| Stat Function Formula    |                                   |                                                                         |
-| ------------------------ | --------------------------------- | ----------------------------------------------------------------------- |
-| **STR**                  | Physical damage, carry weight     | Physical ATK = Base + (STR × 2)                                         |
-| **VIT**                  | Max HP, physical defense          | Max HP = Base + (VIT × 10)                                              |
-| **INT**                  | Magic/elemental damage, max MP    | Magic ATK = Base + (INT × 2), Max MP = Base + (INT × 5)                 |
-| **MND**                  | Magic defense, healing power      | Magic DEF = Base + (MND × 1.5), Healing = Base + (MND × 2%)             |
-| **AGI**                  | Attack speed, move speed          | ATK Speed = Base + (AGI × 0.5%), Move Speed = Base + (AGI × 0.3%)       |
-| **DEX**                  | Accuracy, critical rate           | Accuracy = Base + (DEX × 1%), Crit Rate = Base + (DEX × 0.2%)           |
-| **LUK**                  | Rare drop rate, crit damage bonus | Crit Damage = Base + (LUK × 0.3%), Skill Book Drop = 1% + (LUK × 0.05%) |
+| Stat | Function | Formula |
+|---|---|---|
+| **STR** | Physical damage, carry weight | Physical ATK = Base + (STR × 2) |
+| **VIT** | Max HP, physical defense | Max HP = Base + (VIT × 10) |
+| **INT** | Magic/elemental damage, max MP | Magic ATK = Base + (INT × 2), Max MP = Base + (INT × 5) |
+| **MND** | Magic defense, healing power | Magic DEF = Base + (MND × 1.5), Healing = Base + (MND × 2%) |
+| **AGI** | Attack speed, move speed | ATK Speed = Base + (AGI × 0.5%), Move Speed = Base + (AGI × 0.3%) |
+| **DEX** | Accuracy, critical rate | Accuracy = Base + (DEX × 1%), Crit Rate = Base + (DEX × 0.2%) |
+| **LUK** | Rare drop rate, crit damage bonus | Crit Damage = Base + (LUK × 0.3%), Skill Book Drop = 1% + (LUK × 0.05%) |
 
 ## Starting Stats (Budget 70 per race)
 
-| Stat Human Demon Elf     |    |    |    |
-| ------------------------ | -- | -- | -- |
-| STR                      | 10 | 13 | 7  |
-| VIT                      | 10 | 11 | 9  |
-| INT                      | 10 | 12 | 10 |
-| MND                      | 12 | 8  | 10 |
-| AGI                      | 9  | 9  | 12 |
-| DEX                      | 10 | 8  | 12 |
-| LUK                      | 9  | 9  | 10 |
+| Stat | Human | Demon | Elf |
+|---|---:|---:|---:|
+| STR | 10 | 13 | 7 |
+| VIT | 10 | 11 | 9 |
+| INT | 10 | 12 | 10 |
+| MND | 12 | 8 | 10 |
+| AGI | 9 | 9 | 12 |
+| DEX | 10 | 8 | 12 |
+| LUK | 9 | 9 | 10 |
 
 ## Stat Allocation on Level Up
 
@@ -152,11 +152,11 @@ This roughly holds up the "\~1 hour per level" claim for levels 1-15 — but it'
 
 Berlaku berdasarkan **total poin yang dialokasikan ke satu stat**, bukan dari level:
 
-| Points Allocated Effectiveness   |      |
-| -------------------------------- | ---- |
-| 0–50                             | 100% |
-| 51–100                           | 70%  |
-| 101+                             | 40%  |
+| Points Allocated | Effectiveness |
+|---|---:|
+| 0–50 | 100% |
+| 51–100 | 70% |
+| 101+ | 40% |
 
 **Purpose:** Encourages hybrid builds while allowing full specialization
 
@@ -245,7 +245,7 @@ Healing = (Base Heal + MND × 2%) × Healing Modifiers
 
 - **Attack Skills:** Shadow Bolt, Abyssal Slash, Void Strike, Nightmare Wave, Void Reaper
 - **Recovery Skills:** Dark Absorb, Shadow Mend, Blood Pact, Soul Siphon, Abyssal Communion
-- **Trade-off:** Damage +15% potency vs Light/Basic elements; Recovery costs additional HP (\~3% Max HP per cast)
+- **Trade-off:** Damage +15% potency vs Light/Basic elements; Recovery costs additional HP (~3% Max HP per cast)
 
 ## Skill Book System
 
@@ -253,14 +253,14 @@ Healing = (Base Heal + MND × 2%) × Healing Modifiers
 - **Learning:** Must learn sequentially per element (must have Lv 1-4 before learning Lv 5)
 - **Rarity Progression:**
 
-| Monster Rank Skill Book Level Rarity | | | |
-| ------------------------------------ | ------------- | --------- | --- |
-| E                                    | N/A (no drop) | —         |     |
-| D                                    | Lv 1-3        | Common    |     |
-| C                                    | Lv 4-6        | Uncommon  |     |
-| B                                    | Lv 7-8        | Rare      |     |
-| A                                    | Lv 9          | Epic      |     |
-| S                                    | Lv 10         | Legendary |     |
+| Monster Rank | Skill Book Level | Rarity |
+|---|---|---|
+| E | N/A (no drop) | — |
+| D | Lv 1-3 | Common |
+| C | Lv 4-6 | Uncommon |
+| B | Lv 7-8 | Rare |
+| A | Lv 9 | Epic |
+| S | Lv 10 | Legendary |
 
 > **Note:** LUK affects two separate systems with two separate rates on purpose — Skill Book drop chance here (+0.05%/LUK) and gold-per-kill in the Economy Balancing doc (+0.1%/LUK). They're not meant to match; flagging only so no one "fixes" one to match the other later.
 
@@ -274,74 +274,34 @@ Path bukan class tradisional. Path adalah **identitas + arah perkembangan** berd
 
 ## 10 Starting Paths (Level 15 Recommendation)
 
-| Path Stat Focus Weapon Identity     |                |               |                                    |
-| ----------------------------------- | -------------- | -------------- | ---------------------------------- |
-| **Swordsman**                       | STR + DEX      | Sword          | Balanced melee, damage + precision |
-| **Knight**                          | VIT + STR      | Sword + Shield | Tank, survivability high           |
-| **Berserker**                       | STR            | Great Axe      | Glass cannon, massive damage       |
-| **Spearman**                        | STR + AGI      | Spear/Polearm  | Mid-range melee, mobile            |
-| **Archer**                          | DEX + AGI      | Bow            | Ranged physical, precision         |
-| **Assassin**                        | AGI + DEX      | Dagger         | Burst + evasion, fragile           |
-| **Mage**                            | INT            | Staff          | Elemental ranged, pure magic       |
-| **Spellblade**                      | STR/INT hybrid | Sword + Element| Melee + magic hybrid               |
-| **Priest**                          | MND            | Wand           | Recovery/support, low damage       |
-| **Explorer**                        | LUK            | Any            | Loot specialist, utility           |
+| Path | Stat Focus | Weapon | Identity |
+|---|---|---|---|
+| **Swordsman** | STR + DEX | Sword | Balanced melee, damage + precision |
+| **Knight** | STR + VIT | Sword | Durable frontline |
+| **Berserker** | STR + VIT | Great Axe | High-risk brute force |
+| **Assassin** | DEX + AGI | Dagger | Fast critical melee |
+| **Ranger** | DEX + AGI | Bow | Mobile ranged |
+| **Mage** | INT + MND | Staff | Pure elemental damage |
+| **Battle Mage** | INT + STR | Staff | Melee + magic hybrid |
+| **Healer** | MND + INT | Wand | Recovery/support |
+| **Paladin** | VIT + MND | Sword | Defense + recovery |
+| **Dark Knight** | STR + INT | Sword | Demon hybrid |
 
-## Path Passives (Examples)
+## Path Evolution
 
-- **Swordsman:** +Physical damage with Sword, +Accuracy
-- **Knight:** +Defense with Shield, damage reduction when HP low
-- **Berserker:** +Damage as HP decreases, -Defense
-- **Archer:** +Attack speed ranged, +Crit when target unaware
-- **Assassin:** +Movement speed out of combat, +Backstab damage
-- **Mage:** +Elemental damage, -MP cost for elemental skills
-- **Priest:** +Healing effectiveness, +MP regen
-- **Explorer:** +Rare drop rate, +Movement speed in exploration, wider detection
-
-## Path Evolution (Level 20+)
-
-Tiap path awal bisa evolve ke 2 arah, tergantung stat emphasis:
-
-| Path Awal Evolve A Evolve B    |                             |                                  |
-| ------------------------------ | --------------------------- | -------------------------------- |
-| Swordsman                      | **Blademaster** (STR)       | **Duelist** (DEX)                |
-| Knight                         | **Guardian** (VIT)          | **Paladin** (VIT+MND)            |
-| Berserker                      | **Juggernaut** (STR+VIT)    | **Warlord** (leadership)         |
-| Spearman                       | **Dragoon** (STR burst)     | **Lancer** (AGI mobile)          |
-| Archer                         | **Sniper** (DEX precision)  | **Ranger** (AGI mobile)          |
-| Assassin                       | **Shadow Blade** (stealth)  | **Poison Blade** (DEX+INT DoT)   |
-| Mage                           | **Elementalist** (INT pure) | **Sorcerer** (INT+MND CC)        |
-| Spellblade                     | **Battlemage** (balanced)   | **Runeblade** (debuff)           |
-| Priest                         | **Bishop** (pure heal)      | **Exorcist** (MND+INT offensive) |
-| Explorer                       | **Treasure Hunter** (loot)  | **Trickster** (AGI evasion)      |
+- Paths can evolve based on hidden conditions
+- Example: Swordsman → Swordmaster (Lv 50 + 100 sword kills)
+- Multiple evolution options per path
 
 ## Hidden Paths
 
-- **Ancient Swordmaster** → Find Ancient Sword artifact + high STR
-- **Dragon Slayer** → Solo-kill 1 S-Rank dragon monster
-- **Archsage** → Master all 4 basic elements at Lv 10
-- **Voidwalker** → Find hidden location related to System origin
-- **Twilight Reaper** → Dark element + high PvP kills
-- **Saint of Light** → Light element Lv 10 + special NPC quest
+Found through exploration, quest chains, and rare conditions
 
-## Multiple Paths
-
-Player dapat memiliki lebih dari satu Path sekaligus:
-
-- Swordsman Lv 20 + Mage Lv 10 + Explorer Lv 8 (semuanya aktif)
-- Switching primary Path anytime tanpa penalty
-- Path lama tidak hilang, bisa developed later
-
-## Path EXP
-
-Path berkembang naturally melalui:
-
-- **Activity:** Menggunakan weapon/skill yang sesuai path
-- **Quest:** Quest yang relevant untuk path
-- **Achievement:** Milestone tertentu
-- **Hidden Condition:** Rahasia lainnya
-
-Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
+- **Voidwalker:** Demon mystery path
+- **Saint of Light:** Human hidden path
+- **Beast Lord:** Monster taming path
+- **Archsage:** Magic mastery path
+- **Twilight Reaper:** Hybrid dark/light (extremely rare)
 
 ---
 
@@ -399,13 +359,15 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 **Zones:**
 
 - Central Plaza (hub, orientation)
-- Residential District (inn, blacksmith, armorer)
+- Residential District (inn, blacksmith, armorer, **Cafe**)
 - Adventurer Guild (quest hub, **dungeon entrance basement**)
-- Market District (shops, player stalls, trading)
-- Temple District (light element story)
+- Market District (shops, player stalls, trading, **Player Shops + Profession Booths**)
+- Temple District (light element story, **Apothecary Lyra**) 
 - Gathering Hub (buy tools)
+- **Colosseum** (tournament + duel arena)
+- **Trade Post** (see Map 3; located in Central Hunting Ground, not Human City)
 
-**NPCs:** \~12 total
+**NPCs:** ~12 total + city addendum service/ambient NPCs
 
 #### MAP 2: DEMON CITY
 
@@ -417,14 +379,15 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 
 **Zones:**
 
-- War Plaza (hub, duel arena)
+- War Plaza (hub, **Colosseum** — upgrade from duel arena, tournament mingguan + duel kasual)
 - Barracks District (weapons, armor)
-- Demon Guild Hall (quest hub, **dungeon entrance basement**)
-- Dark Market (shops, trading)
+- Demon Guild Hall (quest hub, **dungeon entrance basement**, **Guild Bank room**)
+- Dark Market (**Player Shops + Profession Booths**, shops, trading)
 - Shadow Temple (dark element story)
+- Residential District (inn, **Cafe**)
 - Gathering Hub (buy tools)
 
-**NPCs:** \~12 total
+**NPCs:** ~12 total + city addendum service/ambient NPCs
 
 #### MAP 4: ELF CITY (WORLD TREE DIMENSION)
 
@@ -439,13 +402,14 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 **Zones:**
 
 - World Tree Hub (central, lore)
-- Residential District (inn, elf crafts)
-- Elf Guild Hall (quest hub, **dungeon entrance basement**)
-- Forest Market (shops, smaller than human/demon)
+- Residential District (inn, elf crafts, **Cafe**)
+- Elf Guild Hall (quest hub, **dungeon entrance basement**, **Guild Bank room**)
+- Forest Market (shops, smaller than human/demon, **Profession Booths**)
 - Nature Temple (earth element story)
 - Gathering Hub (buy tools, +20% gathering bonus)
+- **Colosseum** (skala lebih kecil, tetap ada untuk konsistensi lintas ras)
 
-**NPCs:** \~12 total
+**NPCs:** ~12 total + city addendum service/ambient NPCs
 
 ### Maps 5-6: Hunting Grounds (PvP Enabled)
 
@@ -461,7 +425,7 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 
 **Zones:**
 
-- **Hunter's Outpost** (hub, neutral zone, supply NPC)
+- **Hunter's Outpost** (hub, neutral zone, supply NPC, **Trade Post** — trading netral Human/Demon tanpa masuk kota lawan)
 - **Forest Zone Beginner** (East, Rank E-D monsters, common resources)
 - **Forest Zone Intermediate** (Central, Rank D-C, uncommon resources, **PvP hotspot**)
 - **Highland Zone Advanced** (West, Rank C-B, rare resources, **PvP hotspot**)
@@ -519,14 +483,14 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 
 ## Monster Ranks
 
-| Rank Examples Level Range    |                                                                      |           |
-| ---------------------------- | -------------------------------------------------------------------- | --------- |
-| E                            | Slime, Goblin, Kobold, Magic Wolf, Horn Rabbit                       | Lv 1-10   |
-| D                            | Orc, Golem, Giant Spider, Skeleton Warrior, Rock Turtle              | Lv 10-25  |
-| C                            | Wyvern, Ogre, Silver Wolf, Hobgoblin, Slime King                     | Lv 25-45  |
-| B                            | King Goblin, General Ogre, Emerald Wolf, General Wyvern              | Lv 45-70  |
-| A                            | King Wyvern, Hellhound/Cerberus, Wraith/King Skeleton, Mithril Golem | Lv 70-100 |
-| S                            | Ancient Dragon, Behemoth, Arch Salamander, Fenrir Lord, Arch Lich    | Lv 100+   |
+| Rank | Examples | Level Range |
+|---|---|---:|
+| E | Slime, Goblin, Kobold, Magic Wolf, Horn Rabbit | Lv 1-10 |
+| D | Orc, Golem, Giant Spider, Skeleton Warrior, Rock Turtle | Lv 10-25 |
+| C | Wyvern, Ogre, Silver Wolf, Hobgoblin, Slime King | Lv 25-45 |
+| B | King Goblin, General Ogre, Emerald Wolf, General Wyvern | Lv 45-70 |
+| A | King Wyvern, Hellhound/Cerberus, Wraith/King Skeleton, Mithril Golem | Lv 70-100 |
+| S | Ancient Dragon, Behemoth, Arch Salamander, Fenrir Lord, Arch Lich | Lv 100+ |
 
 ## Monster Spawning
 
@@ -540,7 +504,7 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 ### Common/Fixed Drop
 
 - Every monster drops 1 common item (e.g., Wolf → Fang/Hide)
-- Gold: `100 × Monster Level` (base, modified by player's MND for bonus)
+- Gold: see **Economy Balancing doc → Gold Sources → Monster Kills** for the rank-based gold formula.
 
 ### Rare Drop (Rank D+)
 
@@ -557,6 +521,14 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
   - B → Lv 7-8 Skill Book
   - A → Lv 9 Skill Book
   - S → Lv 10 Skill Book (guaranteed on S-rank)
+
+### Profession Materials (City Content Addendum)
+
+- **Monster Meat:** dropped by monsters and used by Chef for Food Buff crafting
+  - E-D → Common Meat
+  - C-B → Choice Meat
+  - A-S → Prime Meat
+- Monster Meat is a drop category, not a gathering resource.
 
 ---
 
@@ -619,13 +591,13 @@ Floor 100 Ancient Guardian:                   ×3.0 + unique kit (below)
 
 With 12 boss floors × 3 race dungeons = 36 bosses, hand-authoring a unique kit for each isn't a good use of a 2-person team. Instead, every boss rolls **2 tags** from a shared pool at design time; the pool is what makes bosses feel distinct, not bespoke per-boss writing:
 
-| Tag Effect            |                                                                    |
-| --------------------- | ------------------------------------------------------------------ |
-| Telegraphed AoE       | Large-radius attack with a 1.5s wind-up (visibly dodgeable)        |
-| Enrage                | Below 30% HP: +30% attack speed, -10% defense                      |
-| Summon Adds           | Spawns 2-4 regular monsters of that floor's rank                   |
-| Reflect Phase         | For 5s, reflects 20% of damage taken back at attacker              |
-| Knockback Slam        | Melee hit knocks back + brief stun                                 |
+| Tag | Effect |
+|---|---|
+| Telegraphed AoE | Large-radius attack with a 1.5s wind-up (visibly dodgeable) |
+| Enrage | Below 30% HP: +30% attack speed, -10% defense |
+| Summon Adds | Spawns 2-4 regular monsters of that floor's rank |
+| Reflect Phase | For 5s, reflects 20% of damage taken back at attacker |
+| Knockback Slam | Melee hit knocks back + brief stun |
 | Elemental Debuff Zone | Ground zone applying Burn/Slow/Root/Blind (per the boss's element) |
 
 **Race theming (which tags lean more common per dungeon, not exclusive):** Human Dungeon bosses lean Telegraphed AoE + Summon Adds (structured, methodical); Demon Dungeon bosses lean Enrage + Reflect Phase (aggressive, punishing); Elf Dungeon bosses lean Elemental Debuff Zone + Knockback Slam (control-oriented). Same 6 tags everywhere — reskinned per dungeon theme (ancient ruins / abyssal chambers / crystalline caverns) rather than requiring separate mechanical design per race.
@@ -640,20 +612,20 @@ With 12 boss floors × 3 race dungeons = 36 bosses, hand-authoring a unique kit 
 
 Reuses the monster names already defined in the Monster Ranks table — bosses are buffed, named variants of existing monsters (e.g. "Goblin Chieftain" = boss Goblin), not new creatures to design from scratch. Same roster structure applies to all 3 race dungeons, reskinned per theme.
 
-| Floor Rank Base Monster Boss Title (example)     |            |                    |                                  |
-| ------------------------------------------------ | ---------- | ------------------ | -------------------------------- |
-| 10                                               | E          | Goblin             | Goblin Chieftain                 |
-| 20                                               | D          | Orc                | Orc Warlord                      |
-| 30                                               | D          | Skeleton Warrior   | Bonelord                         |
-| 40                                               | C          | Wyvern             | Wyvern Alpha                     |
-| 50                                               | C          | Slime King         | Slime Sovereign                  |
-| 60                                               | C          | Hobgoblin          | Hobgoblin Warchief               |
-| 70                                               | B          | King Goblin        | Goblin Emperor                   |
-| 80                                               | B          | General Wyvern     | Wyvern Marshal                   |
-| 85                                               | B          | General Ogre       | Ogre Overlord                    |
-| 90                                               | A          | King Wyvern        | Wyvern Tyrant                    |
-| 95                                               | A          | Hellhound/Cerberus | Cerberus Alpha                   |
-| 100                                              | S (unique) | —                  | **Ancient Guardian** (see below) |
+| Floor | Rank | Base Monster | Boss Title (example) |
+|---:|---|---|---|
+| 10 | E | Goblin | Goblin Chieftain |
+| 20 | D | Orc | Orc Warlord |
+| 30 | D | Skeleton Warrior | Bonelord |
+| 40 | C | Wyvern | Wyvern Alpha |
+| 50 | C | Slime King | Slime Sovereign |
+| 60 | C | Hobgoblin | Hobgoblin Warchief |
+| 70 | B | King Goblin | Goblin Emperor |
+| 80 | B | General Wyvern | Wyvern Marshal |
+| 85 | B | General Ogre | Ogre Overlord |
+| 90 | A | King Wyvern | Wyvern Tyrant |
+| 95 | A | Hellhound/Cerberus | Cerberus Alpha |
+| 100 | S (unique) | — | **Ancient Guardian** (see below) |
 
 **Ancient Guardian (Floor 100, one unique variant per race):** ties directly into the Dungeon Core lore and reuses each race's own Element Lv 10 ultimate for its signature attack, rather than inventing a new ability:
 
@@ -680,21 +652,13 @@ With 100 floors × 3 dungeons, hand-designing every floor's layout isn't realist
 
 **Floor Modifiers (optional replay variety, rolled per floor per run):**
 
-| Modifier Effect   |                                 |
-| ----------------- | ------------------------------- |
-| None (default)   | Baseline difficulty/reward      |
-| Elite Swarm       | +50% monster density, +30% loot |
-| Blessing          | -20% monster HP, -10% loot      |
+| Modifier | Effect |
+|---|---|
+| None (default) | Baseline difficulty/reward |
+| Elite Swarm | +50% monster density, +30% loot |
+| Blessing | -20% monster HP, -10% loot |
 
 This gives floors replay variety without hand-authoring 100 unique layouts, and gives players a light risk/reward choice each run (accept the roll, or leave and re-enter to reroll).
-
-## Lore: Dungeon Core
-
-- **Core exists** on Floor 100 (one per race)
-- **Core is ancient** → pre-dates known civilization
-- **Core emits System energy** → fills dungeon monsters with power
-- **Skill Books are Core energy crystallized** into knowledge
-- **Unknown who made Cores** → central mystery of Lost Soul
 
 ---
 
@@ -704,7 +668,7 @@ This gives floors replay variety without hand-authoring 100 unique layouts, and 
 
 - **Wilderness/Hunting Ground:** FREE PvP (can attack anyone)
 - **City/Safe Zone:** NO PvP (except duels, which are consensual)
-- **Duel:** Available at arena NPC in cities, both players must agree
+- **Duel:** Available at Colosseum in cities, both players must agree
 
 ## PvP Death Mechanics
 
@@ -789,7 +753,7 @@ Obtained by:
 ### Player-Generated Quest
 
 - Player A needs item (e.g., Horn Rabbit Horn)
-- A posts quest to Adventurer Guild
+- A posts quest to Adventurer Guild / Guild Board
 - NPC prices quest: `Item Value + 10% tax`
 - Player B accepts & completes
 - B gets reward, A pays from inventory or gold
@@ -800,9 +764,9 @@ Obtained by:
 
 ## Gold Sources
 
-> **Fixed:** this section previously stated its own gold-per-kill formula (`100 × Monster Level`), which was a *third*, different formula from the one in the Economy Balancing doc — neither of the two matched each other or the Breakdown-by-Rank table there. Rather than maintain two copies that can drift apart again, this section now points to the single corrected formula instead of restating it.
+> **Single source of truth:** see **Economy Balancing doc → Gold Sources → Monster Kills** for the rank-based interpolation formula, then apply its LUK modifier.
 
-- Monster kills: see **Economy Balancing doc → Gold Sources → Monster Kills** for the formula (rank-based interpolation, now fixed to match its own breakdown table)
+- Monster kills: rank-based interpolation (Economy Balancing doc)
 - Quests: varies by quest, see Economy Balancing doc → Quest Rewards
 - Dungeon: varies by floor, see Economy Balancing doc → Dungeon Rewards
 - Trading/selling: player-determined
@@ -837,14 +801,16 @@ Obtained by:
 ### NPC Shop
 
 - Buy/sell all items
-- Buy price: `(Item Base Price) × Supply/Demand modifier`
+- Standard equipment/consumable/accessory tables in Economy Balancing are now the **NPC Fallback** baseline where specified; relevant fallback purchases use **+20% markup** and **Standard quality**.
+- Buy price: `(Item Base Price) × Supply/Demand modifier` unless the Economy Balancing section explicitly defines the NPC Fallback markup.
 - Sell price: **50% of buy price**
 
 ### Player Shop
 
-- Located in: Human City, Demon City
+- Located in: Human City, Demon City, Market District / Dark Market
 - Player sets price (system shows recommendation)
 - 10% tax on revenue
+- Player Craft quality badge shown separately from item rarity (Standard / Fine / Masterwork / Flawless)
 - Criminal CANNOT shop here
 - All races can visit
 
@@ -860,8 +826,13 @@ Obtained by:
 - Monthly membership fee: 5000 gold
 - Benefits: market info, reduced shop tax (Player Shop 10% → 7%, Guild Shop 5% → 3%), bulk purchase discount (×0.95 cost), access to market data (price trends)
 - Rank: based on transaction volume & gold traded
+- **Physical location:** Market District in each city, adjacent to Profession Booths where available
 
-> **Fixed:** this section said "TBD" for the fee and "7% → 5%" for the tax reduction — neither matched the Merchant Guild Benefits section already written in the Economy Balancing doc (5000 gold fee; 10%→7% and 5%→3% for the two shop types separately). Synced to match.
+### NPC Fallback vs Player Craft
+
+- Equipment and accessory pricing tables in the Economy Balancing doc serve as the NPC fallback baseline where defined, with **+20% markup** and **Standard quality**.
+- Player Craft prices are player-determined through Player Shop, Guild Shop, or Profession Booths; actual prices follow supply/demand and quality differences rather than a fixed system modifier.
+- Food Buffs are an exception: they are **player-driven only** through Chef and have no NPC fallback.
 
 ---
 
@@ -882,6 +853,7 @@ Obtained by:
 - Tools don't degrade
 - Rarity: Common, Uncommon, Rare, Epic, Legendary
 - **Legendary materials:** NOT from gathering (only from monster drops)
+- **Gem sub-category:** Mining can produce Rough Gem, Polished Gem, and Flawless Gem at lower rates than standard Ore; Gem is the primary material for Jeweler.
 
 **Respawn:**
 
@@ -895,7 +867,32 @@ Obtained by:
 
 ## Crafting System
 
-Crafting turns gathered materials (Mining/Logging/Herbalism) and monster-drop materials (e.g. Leather from Hide) into equipment and consumables. Full recipe examples, material costs, and the crafting-level profit curve live in the **Economy Balancing doc** ("Crafting Recipes & Costs" and "Crafting Progression" sections) — this section covers the two mechanics that live outside pricing: success/failure rate, and how top-tier gear is unlocked.
+**Filosofi:** Semua equipment/consumable utama dibuat pemain lewat 4 Profesi, bukan cuma dibeli NPC. NPC tetap jual versi fallback (harga premium, kualitas fix) untuk pemain baru — lihat `Lost Soul City Content Addendum.md` untuk detail lengkap.
+
+**4 Profesi:**
+
+- **Blacksmith** — senjata & armor (dari Ore/Refined Ore)
+- **Alchemist** — HP/MP Potion & Buff Potion (dari Herb)
+- **Chef** — Food Buff (dari monster meat + Herb), bekerja di Cafe
+- **Jeweler** — Ring/Amulet/Belt + Socketing jasa (dari Gem hasil Mining tier tinggi)
+
+**Struktur Umum:**
+
+- Profesi Lv 1-50
+- Multi-profesi diperbolehkan; profesi ke-1 & ke-2 = 100% efisiensi, profesi ke-3+ = 70% (soft cap, pola sama seperti Stat Allocation)
+- Reputasi Profesi lokal dapat digunakan untuk pengembangan relasi NPC/profession.
+- Resep didapat dari: quest awal (dasar), NPC trainer (menengah), monster drop Rank B+ (langka)
+
+**Kualitas Hasil Crafting:**
+
+| Roll | Peluang Dasar | Efek |
+|---|---:|---|
+| Standard | 70% | Baseline resep |
+| Fine | 20% | +5-10% stat utama |
+| Masterwork | 8% | +15-20% stat utama |
+| Flawless | 2% | +25% stat utama + 1 slot enchant kosong |
+
+Peluang Fine/Masterwork/Flawless naik seiring Profession Level. Detail lengkap tiap profesi: lihat `Lost Soul City Content Addendum.md`.
 
 ### Success / Failure Rate
 
@@ -906,20 +903,21 @@ Clamped between 10% (hard floor) and 95% (hard ceiling)
 
 - Crafting **above** your level is risky but not impossible (10% floor keeps it possible to reach for Rare/Epic gear early, at a steep material-loss cost).
 - Crafting **below** your level is close to guaranteed (95% ceiling) — no incentive to "grind trivial recipes" for free successes.
-- **On failure:** 50% of materials are consumed (not all) and no item is produced. This keeps failure painful but not run-ending, and gives a soft reason for the Merchant Guild's bulk-purchase discount (see Economy doc) to matter for active crafters.
+- **On failure:** 50% of materials are consumed (not all) and no item is produced.
 
 **Example:** Lv 15 crafter attempting the Iron Sword recipe (Recipe_Required_Level 15): 50% + 0×2% = 50% success. Same crafter at Lv 25: 50% + 10×2% = 70%.
 
 ### Equipment vs Consumable Crafting
 
 - **Equipment** (weapons/armor): follows the Crafting Recipes & Costs table in the Economy doc — higher variance, higher profit margin, success rate applies as above.
-- **Consumables** (potions): success rate is fixed at 90% regardless of crafter level (low-stakes, high-volume — see Consumable Pricing in the Economy doc for potion cost/profit) so early-game alchemists aren't blocked from reliable income.
+- **Consumables** (potions): success rate is fixed at 90% regardless of crafter level.
+- **Food Buffs:** player-driven Chef crafting only; one Food Buff may be active at a time, but Food Buffs stack with Potion Buffs.
 
 ### Unique Recipes from Boss Drops
 
-- Dungeon bosses (per the Boss Mechanics section) drop **Blueprints** as part of their guaranteed rare-drop loot table.
-- A Blueprint unlocks exactly one recipe for **Unique or Mythic** tier gear — the top rows of the Weapon/Armor pricing curves (60+ Mythic weapons, 100+ Unique/Mythic armor) that otherwise have no crafting path and can only be bought at full NPC price.
-- Blueprints are Bind-on-Pickup (cannot be traded) so top-tier crafted gear stays tied to actually killing the boss, not just buying the blueprint off the market — this is a deliberate gold sink and anti-inflation lever alongside the ones in the Economy doc's Inflation Prevention section.
+- Dungeon bosses drop **Blueprints** as part of their guaranteed rare-drop loot table.
+- A Blueprint unlocks exactly one recipe for **Unique or Mythic** tier gear.
+- Blueprints are Bind-on-Pickup (cannot be traded).
 
 ---
 
@@ -939,6 +937,8 @@ Clamped between 10% (hard floor) and 95% (hard ceiling)
 - Guild wars/PvP (optional)
 - Guild bank (shared storage)
 
+**Guild Bank — Lokasi Fisik:** Guild Bank berada di ruangan terpisah di dalam tiap Guild Hall (Adventurer/Demon/Elf), terpisah dari area Quest Board.
+
 ---
 
 # 🧙 NPC FRAMEWORK
@@ -948,10 +948,14 @@ Clamped between 10% (hard floor) and 95% (hard ceiling)
 ### Utility NPCs
 
 - Innkeeper (rest/healing)
-- Blacksmith (weapon upgrade)
+- Blacksmith (weapon upgrade / profession trainer)
 - Armorer (gear)
 - Merchant (buy/sell)
 - Tool Merchant (gathering tools)
+- Apothecary (Alchemist trainer)
+- Chef Trainer
+- Jeweler Trainer
+- Colosseum Announcer (flavor, bark-only)
 
 ### Quest NPCs
 
@@ -980,7 +984,7 @@ Clamped between 10% (hard floor) and 95% (hard ceiling)
 Covers:
 
 - Dialogue tree notation + the 5-state quest logic (Locked → Available → In Progress → Ready to Turn In → Completed)
-- Personality Tag framework (8 tags) so \~36 named NPCs feel distinct without needing 36 bespoke voices
+- Personality Tag framework (8 tags) so ~36 named NPCs feel distinct without needing 36 bespoke voices
 - Fully worked dialogue trees for every Utility, Quest, and Lore/Story NPC role, written for Human City with a Race Variation table (§11 of that doc) covering how Demon/Elf City reskin the same structure
 - Flavor NPC bark-pool pattern for ambient city NPCs
 - Full "Awakening" opening Main Quest chain text (4 quests), Side Quest examples, and the Player-Generated Quest posting/fulfillment scaffolding
@@ -1064,14 +1068,14 @@ Multiple **Places** (not one giant place) linked via `TeleportService`, matching
 
 - **Persistent places:** Human City, Demon City, Elf City, Central Hunting Ground, Elf Hunting Ground — always-on, shared by all players who enter them.
 - **Instanced places:** Human/Demon/Elf Dungeons — each party gets a `TeleportService:ReserveServer()` private instance on entry, so dungeon floor state (monsters, loot rolls, floor-randomization seed) never leaks between parties and one party's boss pull doesn't affect another's.
-- **Code organization:** `ServerScriptService` split into one ModuleScript per domain — `CombatService`, `EconomyService`, `GuildService`, `DungeonService`, `CraftingService`, `PvPService` — each with a small, explicit public API. With 2 devs working without a deadline, this boundary matters more for long-term maintainability than for launch speed: it lets either dev touch one system without reading the others.
+- **Code organization:** `ServerScriptService` split into one ModuleScript per domain — `CombatService`, `EconomyService`, `GuildService`, `DungeonService`, `CraftingService`, `PvPService` — each with a small, explicit public API.
 
 ### DataStore (Player Save Data)
 
-- Use a session-locking wrapper (the standard pattern here is **ProfileService**-style: one profile per player, locked to the server session they're on) rather than raw `DataStore:GetAsync/SetAsync` calls — this is what prevents the classic Roblox dupe exploit where a player alt-tabs between two servers while their old session hasn't saved yet.
+- Use a session-locking wrapper (ProfileService-style)
 - **Per-player profile contents:** level/EXP, stat allocation, unlocked Paths + Path EXP, learned Skill Books, inventory, equipped gear (+ lock status), gold, gathering/crafting levels, criminal status + level, guild membership, trade history log.
-- **Cross-place consistency:** because players teleport between Places (city → hunting ground → dungeon), the profile must follow them — load on `PlayerAdded` in whichever place they land in, save on `PlayerRemoving` **and** immediately before every `TeleportService:TeleportAsync` call, since a mid-teleport server crash is the single most common cause of Roblox players losing progress.
-- **Guild data** is a separate DataStore keyed by guild ID (not nested in player profiles), since guild bank/reputation is shared state multiple players write to concurrently — use `UpdateAsync` with retry-on-conflict, never `SetAsync`, for anything touched by more than one player.
+- **Cross-place consistency:** profile follows teleports; load on `PlayerAdded`, save on `PlayerRemoving` and before teleport.
+- **Guild data** is a separate DataStore keyed by guild ID; use `UpdateAsync` with retry-on-conflict.
 
 ### Networking (Combat Sync, PvP, Trading)
 
@@ -1080,29 +1084,31 @@ Multiple **Places** (not one giant place) linked via `TeleportService`, matching
 ```text
 Client → RemoteEvent: "I want to cast Fireball at position X, targeting enemy Y"
 Server validates: cooldown ready? in range? line of sight? enough MP?
-Server computes: damage using the Physical/Magic Damage formulas (Combat & Stats section)
+Server computes: damage using the Physical/Magic Damage formulas
 Server → replicates: the resulting damage/effect to nearby clients for visual feedback
 ```
 
-- Character movement uses Roblox's default replication (cheap, already network-optimized) — only *skill casts, damage events, and item transfers* go through custom RemoteEvents, each server-side validated against the rules already defined elsewhere in this doc (cooldowns per skill, AGI-based attack speed, DEX-based accuracy/crit).
-- **Trading** (Trade Window + 3-second lock) is a server-side state machine, not a client UI trick — the server owns "who has agreed," "what's in the offer," and "is it locked," and only the server actually moves items/gold when both sides are confirmed locked. This is what prevents the classic Roblox trade-scam pattern of swapping offered items after the other player accepts.
-- **PvP death item drops** (5-50% chance per equipped item) are rolled server-side at the moment of death, before any client can react — client never sees "will this drop" ahead of time.
+- Character movement uses Roblox's default replication.
+- Trading is a server-side state machine; the server owns the offer, agreement, lock, and transfer state.
+- PvP death item drops are rolled server-side at the moment of death.
+- **Profession/Crafting transactions:** profession selection, recipe unlocks, material consumption, quality rolls, fallback purchases, and socketing outcomes are server-authoritative. The server must validate profession level, recipe requirements, material inventory, and transaction cost before committing results.
+- **Colosseum betting:** all bet placement, cap validation, match lock, payout distribution, and 15% commission are server-authoritative. Bets become irreversible once the match starts.
 
 ### Performance (1000 Concurrent Target)
 
-- `Workspace.StreamingEnabled = true` on the large exploration maps (Hunting Grounds) — matches their "Large, exploration-heavy" sizing in Map Structure, since streaming is what makes a big open map viable on lower-end devices.
-- Dungeon instancing (above) caps monster count per server to whatever one party needs, rather than 1000 players' worth of monsters existing in one place — this is what actually makes "5-15 monsters per zone" from Monster Spawning affordable at scale.
-- Cities are the highest-density social spaces (all players who aren't out farming); keep NPC AI and shop-price-check scripts on a staggered update loop (e.g. every 2-3 seconds, not every frame) rather than per-frame polling.
+- `Workspace.StreamingEnabled = true` on large exploration maps.
+- Dungeon instancing caps monster count per server to one party's needs.
+- Cities keep NPC AI and shop-price-check scripts on staggered update loops rather than per-frame polling.
 
 ### Security (Anti-Cheat, Exploit Prevention)
 
-- Every RemoteEvent gets **rate limiting** (e.g. max N calls per second per player) and a **sanity check** (does this player's stated skill level even allow this action?) before the server acts on it — the single most common Roblox exploit pattern is a modified client spamming RemoteEvents directly, bypassing the intended UI cooldowns entirely.
-- Gold/item quantities are validated server-side against the player's actual DataStore-backed inventory on every trade, shop transaction, and crafting attempt — never trust a client-sent quantity.
-- Criminal-status and bounty state changes (Criminal System) are server-only writes, never client-triggered, since these gate PvP consequences that players have a strong incentive to fake or dodge.
+- Every RemoteEvent gets rate limiting and sanity checks.
+- Gold/item quantities are validated server-side against actual inventory on every trade, shop transaction, crafting attempt, profession action, socketing action, and betting action.
+- Criminal-status and bounty state changes are server-only writes.
 
 ## UI/UX Framework
 
-**Fully detailed in a companion document:** **`Lost_Soul_UIUX_Design.md`**
+**Fully detailed in a companion document:** **`Lost Soul UI UX Desain.md`**
 
 Covers:
 
@@ -1111,8 +1117,8 @@ Covers:
 - PvP/Criminal status indicators tied to §PvP & Criminal System
 - Notification/Toast system
 - Settings & Accessibility (colorblind mode, text size, keybind remap)
-- Roblox cross-platform implementation notes (PC/Mobile/Tablet scaling, performance, security)
-- One open design question flagged for follow-up: fast travel between maps is not yet defined anywhere in this bible
+- City Content Addendum surfaces: crafting-quality badges, NPC fallback badge, Colosseum betting/bracket UI, and city sub-markers for Cafe/Colosseum/Trade Post
+- One open design question remains: fast travel between maps is not yet defined and needs a decision before World Map UI is finalized in Roblox Studio
 
 ---
 
@@ -1161,22 +1167,23 @@ Covers:
 - ✅ Element system (6 elements, 55 skills)
 - ✅ Path system (10 main + evolution + hidden)
 - ✅ Map structure (8 maps, all zones)
+- ✅ City Content Addendum integrated (professions, Cafe, Colosseum, Trade Post, Guild Bank location, Market/Profession Booths)
 - ✅ PvP + Criminal system
-- ✅ Economy (trading, shops, guild shop)
-- ✅ Monster ranks
+- ✅ Economy (trading, shops, guild shop, profession economy additions)
+- ✅ Monster ranks + profession material drops
 - ✅ Dungeon concept
-- ✅ Crafting (recipes, costs, success rate, boss-drop uniques)
+- ✅ Crafting (4 professions, recipes, costs, success rate, quality tiers, boss-drop uniques)
 - ✅ Boss mechanics (stat scaling, phases, named roster, race theming)
 - ✅ Dungeon floor randomization (template pool, seeding, floor modifiers)
 - ✅ Roblox technical architecture (server structure, DataStore, networking, performance, security)
-- ✅ Balancing numbers (EXP-per-kill formula added + validated; Progression Pacing math corrected; gold-per-kill formula fixed — three conflicting versions across both docs unified into one rank-interpolation formula that now matches the Breakdown by Rank table)
+- ✅ Balancing numbers (EXP-per-kill formula validated; gold-per-kill formula centralized in Economy doc)
 - ✅ Lore timeline (Age of the Lost, Age of Settlement, Modern Day — Central Mystery kept intact)
-- ✅ NPC dialogue & quest text (personality framework, dialogue trees per NPC role, Main/Side/Player-Generated quest text — see `Lost_Soul_NPC_Dialogue_Quest_Text.md`)
-- ✅ UI/UX final design (HUD, all menus, combat/dungeon UI, cross-platform Roblox implementation notes — see `Lost_Soul_UIUX_Design.md`)
+- ✅ NPC dialogue & quest text (personality framework, dialogue trees per NPC role, Main/Side/Player-Generated quest text)
+- ✅ UI/UX final design plus City Content Addendum surfaces
 
 **Needs Detailing:**
 
-- None — all design areas are locked. One open follow-up question noted in the UI/UX doc: fast travel between maps is not yet defined and needs a decision before World Map UI is finalized in Roblox Studio.
+- None — all design areas are locked except the previously noted fast-travel decision.
 
 ---
 
@@ -1184,12 +1191,13 @@ Covers:
 
 Design is now 100% — remaining steps shift from *designing* to *building*:
 
-1. **Review this master file + companion docs** with team (Economy Balancing, NPC Dialogue & Quest Text, UI/UX Design)
-2. **Split into modular docs** for hand-off (08-ZONES-DETAIL, 10-MONSTER-SYSTEM, etc.) if the team finds the master file unwieldy during implementation
+1. **Review this master file + companion docs** with team
+2. **Split into modular docs** for hand-off if the team finds the master file unwieldy during implementation
 3. **Assign responsibilities** (Dev A = systems, Dev B = content) per the ModuleScript boundaries already defined in Technical Notes
 4. **Start Roblox dev** with map files + basic systems (Phase 1 of Development Checklist)
-5. **Resolve the one open design question:** fast travel between maps (flagged in `Lost_Soul_UIUX_Design.md`) — needs a decision before World Map UI implementation
-6. **Iterate & balance** as you build — every formula in this bible is a first-pass tuning lever, not a guarantee (see Progression Pacing and Economy Balancing docs for how to read the tuning notes)
+5. **Resolve the one open design question:** fast travel between maps
+6. **Implement City Content Addendum dependencies in order:** professions/materials → NPC trainer dialogue → shop/quality UI → Colosseum → Trade Post → Guild Bank room → final economy recalc
+7. **Iterate & balance** as you build — every formula in this bible is a first-pass tuning lever, not a guarantee
 
 ---
 
@@ -1197,4 +1205,4 @@ Design is now 100% — remaining steps shift from *designing* to *building*:
 
 Last Updated: September 2026
 
-Next Review: After Phase 1 completion
+Next Review: After Phase 1 completion + City Content Addendum implementation pass
