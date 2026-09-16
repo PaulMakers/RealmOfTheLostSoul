@@ -274,6 +274,16 @@ NPC_Buy_Price = Item_Base_Price × 0.5 × (Supply/Demand_Modifier)
 | 50-60 | Unique | 10000 | 2000 | 12000 |
 | 60+ | Mythic | 20000+ | 5000+ | 25000+ |
 
+## NPC Fallback vs Player Craft
+
+Harga di tabel di atas (Sword Line, Armor Progression, Accessory Pricing) sekarang berlaku sebagai **NPC Fallback Price**, dengan markup **+20%** dari nilai tercantum, kualitas selalu Standard (tidak ada roll Fine/Masterwork/Flawless).
+
+**Player Craft Price:** ditentukan pemain (Player Shop/Guild Shop/Booth Profesi), bebas fluktuasi sesuai supply/demand asli — bukan modifier sistem. Player Blacksmith/Jeweler bisa jual di bawah harga NPC Fallback karena kualitas hasil craft (Fine+) memberi nilai tambah yang NPC tidak punya.
+
+**Contoh (Iron Sword, base value 600g):**
+- NPC Fallback: 720g (600 × 1.2), Standard quality
+- Player Craft: harga bebas, bisa 500-800g tergantung kualitas roll & supply lokal
+
 **Sword Purchase Timeline (Player with 2000 g/hr income):**
 
 - Lv 1 Common Sword: 5 min play time
@@ -362,6 +372,24 @@ NPC_Buy_Price = Item_Base_Price × 0.5 × (Supply/Demand_Modifier)
 
 - NOT from gathering (monster drops only)
 
+## Monster Meat (Chef Material — drop dari monster, bukan gathering)
+
+| Rank Monster | Tipe Meat | NPC Price/unit |
+|---|---|---:|
+| E-D | Common Meat | 8 gold |
+| C-B | Choice Meat | 40 gold |
+| A-S | Prime Meat | 200 gold |
+
+## Gem (Jeweler Material — sub-kategori Mining, drop rate rendah)
+
+| Rarity | NPC Price/unit |
+|---|---:|
+| Rough Gem | 60 gold |
+| Polished Gem | 300 gold |
+| Flawless Gem | 1500 gold |
+
+**Socketing Fee (Jeweler jasa, dibayar ke player Jeweler bukan sistem):** 50-500 gold tergantung rarity item yang di-socket, harga bebas ditentukan Jeweler.
+
 ---
 
 ## Crafting Recipes & Costs
@@ -448,6 +476,18 @@ NPC_Buy_Price = Item_Base_Price × 0.5 × (Supply/Demand_Modifier)
 - Casual player: 0-5 potions per session
 - Mid-core: 5-10 potions per PvP session
 - Hardcore: 20+ potions per endgame grind
+
+## Food Buff (Chef Profession)
+
+| Tier | Buff | Durasi | Efek | Crafting Cost (est.) |
+|---|---|---|---|---:|
+| Basic | +10% 1 stat | 2 jam | Kecil, stack dengan Potion buff | 30-60 gold bahan |
+| Refined | +15% 1 stat | 2 jam | Sedang | 100-200 gold bahan |
+| Feast | +10% All Stats | 2 jam | Kecil di semua stat | 300-500 gold bahan |
+
+**Aturan stack:** hanya 1 Food Buff aktif sekaligus (tidak stack sesama Food Buff), tapi bisa stack dengan Potion Buff biasa.
+
+**NPC Fallback:** tidak tersedia — Food Buff murni player-driven (Chef), tidak ada versi NPC.
 
 ---
 
@@ -561,6 +601,26 @@ NPC_Sell_Price = Item_Base_Value × Rarity_Multiplier
 - Potions used during grinding
 - Buff potions for PvP
 - Repair costs (if implemented later)
+
+### 5. Colosseum Betting Commission (baru)
+
+- **Commission:** 15% dari total pool taruhan penonton per match turnamen
+- **Cap taruhan:** 5000 gold per orang per match (mencegah manipulasi hasil oleh wallet besar)
+- **Efek ekonomi:** net deflationary — memindahkan gold antar-pemain minus commission, tidak menambah gold baru ke sistem
+- Masuk hitungan total gold sink 30-40% yang sudah ditetapkan; tidak mengubah target keseluruhan, hanya menambah 1 saluran baru
+
+---
+
+# 🔎 CITY CONTENT ADDENDUM INTEGRATION
+
+- **NPC fallback equipment/accessory/Alchemist purchases:** +20% markup over the applicable baseline, Standard quality, where explicitly defined by the addendum.
+- **Food Buff:** player-driven Chef system only; no NPC fallback.
+- **Monster Meat:** E-D Common Meat (8g), C-B Choice Meat (40g), A-S Prime Meat (200g).
+- **Gem:** Rough Gem (60g), Polished Gem (300g), Flawless Gem (1500g).
+- **Socketing:** player-paid Jeweler service, 50-500g depending on item rarity; fee goes to the Jeweler player.
+- **Colosseum betting:** 15% commission, max 5000g per person per match.
+
+---
 
 ## Inflation Monitoring
 
@@ -778,102 +838,21 @@ For each Item:
 **Impact:**
 
 - Oversupply → Price drops → Buyers benefit, sellers less incentive to farm
-- Undersupply → Price rises → Sellers benefit, attracts farmers back
+- Undersupply → Price rises → Sellers benefit, more players farm item
+- Self-balancing market (minimal manual intervention)
 
 ---
 
-## Seasonal Economy Events (Optional Expansion)
+# ✅ ECONOMY VALIDATION CHECKLIST
 
-**Festival Events (bonus gold for participation):**
-
-- Double monster drops (7 days)
-- +25% quest rewards
-- Event-exclusive vendor with rare items
-
-**Holiday Economy:**
-
-- New Year: +50% gold for first week
-- Midwinter: Special dungeon (2x rewards)
-- Anniversary: Guild shop commission -50%
-
----
-
-# 🎲 BALANCING TUNING PARAMETERS
-
-### If Economy is Too Expensive (deflation):
-
-1. **Increase Monster Drops:** +10% gold per kill
-2. **Increase Quest Rewards:** +15% across all tiers
-3. **Decrease NPC Sell Prices:** 50% → 60% of item value
-4. **Decrease Tax Rates:** 10% → 8% player shop
-5. **Check:** Are players rushing to endgame? Adjust level XP instead
-
-### If Economy is Too Cheap (inflation):
-
-1. **Decrease Monster Drops:** -10% gold per kill
-2. **Increase Consumable Costs:** +20% potion prices
-3. **Increase Equipment Prices:** +15% weapon/armor cost
-4. **Increase NPC Sell Prices:** 50% → 45%
-5. **Increase Taxes:** 10% → 12%
-
-### If Wealth Gap (Rich vs Poor) Too Large:
-
-1. **Implement progressive taxes:** High players pay 15%, low players 5%
-2. **Add endgame gold sink:** Prestige system costs 10M gold
-3. **Increase common material value:** Gives low-level farmers benefit
-4. **New lower-level dungeons:** Quick progression catchup
-
----
-
-## 🎯 ECONOMY HEALTH CHECKPOINTS
-
-**Monthly Review Metrics:**
-
-```text
-1. Average Gold/Hour (all players)
-   Target: 2000-3000 g/hr
-   Alert if: <1500 or >5000
-
-2. Inflation Rate
-   Target: <2% per month
-   Alert if: >5%
-
-3. Equipment Ownership Rate
-   Target: 80% players own appropriate gear
-   Alert if: <60% or >95%
-
-4. Wealth Distribution (Gini Coefficient)
-   Target: 0.5-0.6 (moderate inequality, healthy economy)
-   Alert if: <0.3 (too equal) or >0.7 (too unequal)
-
-5. Player Retention by Wealth Tier
-   Target: <10% monthly churn
-   Alert if: High earners drop >15%, low earners drop >20%
-```
-
-**Action Plan If Metrics Alert:**
-
-- Week 1: Identify root cause
-- Week 2: Propose tuning changes
-- Week 3: Deploy hotfix
-- Week 4: Monitor recovery
-
----
-
-# 📋 IMPLEMENTATION CHECKLIST
-
-- [ ] Lock monster drop gold formula
-- [ ] Lock quest reward tiers
-- [ ] Lock equipment price curves
-- [ ] Lock consumable pricing
-- [ ] Lock shop commission rates
-- [ ] Implement NPC buy price algorithm
-- [ ] Implement supply/demand modifiers
-- [ ] Set up weekly price adjustment
-- [ ] Create economy monitoring dashboard
-- [ ] Train support team on price tuning
-- [ ] Document all formulas for consistency
-- [ ] Plan weekly economy reviews
+- [ ] Gold sources ≥ gold sinks (long-term)
+- [ ] All prices feel fair (player feedback)
+- [ ] Progression not too fast/slow
+- [ ] No inflation >2% monthly
+- [ ] New player can progress in 2-4 hours daily
+- [ ] Endgame has meaningful gold sinks
+- [ ] Player feedback collected weekly
+- [ ] **City Addendum:** Recalculate NPC fallback prices, Food Buff costs, Monster Meat/Gem values, Socketing fee impact, and Colosseum commission after playtest telemetry
 
 ---
 
@@ -881,6 +860,4 @@ For each Item:
 
 Last Updated: September 2026
 
-Next Review: After Week 1 of launch
-
-Owner: PaulMaker (Lead Systems Designer)
+Next Review: After first 100-player test
