@@ -2,9 +2,9 @@
 
 **Status:** Melengkapi item "NPC Dialogue Structure — To Be Detailed Separately" dari Master Game Bible
 
-**Dokumen pendamping:** `LostSoul.md` (§ NPC Framework, § Quest System) dan `Lost_Soul_Economy_Balancing.md` (§ Quest Rewards)
+**Dokumen pendamping:** `LostSoul.md` (§ NPC Framework, § Quest System), `Lost Soul Economy Balancing.md` (§ Quest Rewards, § Shop Systems), dan `Lost Soul City Content Addendum.md` (§ Professions, Cafe, Colosseum, Trade Post)
 
-**Cakupan:** Mekanisme sistem dialogue, kerangka kepribadian NPC, dialogue tree untuk setiap kategori NPC, dan contoh teks quest lengkap (Main, Side, Player-Generated)
+**Cakupan:** Mekanisme sistem dialogue, kerangka kepribadian NPC, dialogue tree untuk setiap kategori NPC, dan contoh teks quest lengkap (Main, Side, Player-Generated), ditambah dialogue/services dari City Content Addendum.
 
 **Catatan bahasa:** Teks dialog NPC yang muncul langsung di dalam game (semua kalimat dalam tanda kutip `"..."`) sengaja tetap dalam Bahasa Inggris, karena itu naskah asli yang akan dipakai di game. Bagian penjelasan, struktur, dan catatan desain diterjemahkan ke Bahasa Indonesia.
 
@@ -12,19 +12,20 @@
 
 ## 📋 DAFTAR ISI
 
-1. [Gambaran Sistem Dialogue](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#overview)
-2. [Kerangka Kepribadian NPC](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#personality)
-3. [Notasi Dialogue Tree & Logika State Quest](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#notation)
-4. [Dialog NPC Utility](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#utility)
-5. [Dialog NPC Quest](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#quest-npc)
-6. [Dialog NPC Lore/Story](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#lore-npc)
-7. [Bark Flavor NPC](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#flavor)
-8. [Teks Main Quest — Chain Pembuka "Awakening"](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#main-quest)
-9. [Teks Side Quest — Contoh](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#side-quest)
-10. [Player-Generated Quest — Teks Sistem](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#player-quest)
-11. [Aturan Variasi Dialog per Ras](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#race-variation)
-12. [Gating Reputasi & Status Criminal](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#gating)
-13. [Checklist Implementasi](https://claude.ai/chat/eb4cf320-ee6a-4be5-add9-f091b2d66587#checklist)
+1. [Gambaran Sistem Dialogue](#overview)
+2. [Kerangka Kepribadian NPC](#personality)
+3. [Notasi Dialogue Tree & Logika State Quest](#notation)
+4. [Dialog NPC Utility](#utility)
+5. [Dialog NPC Quest](#quest-npc)
+6. [Dialog NPC Lore/Story](#lore-npc)
+7. [Bark Flavor NPC](#flavor)
+8. [Teks Main Quest — Chain Pembuka "Awakening"](#main-quest)
+9. [Teks Side Quest — Contoh](#side-quest)
+10. [Player-Generated Quest — Teks Sistem](#player-quest)
+11. [Aturan Variasi Dialog per Ras](#race-variation)
+12. [Gating Reputasi & Status Criminal](#gating)
+13. [City Content Addendum NPC & Service Dialogue](#city-content)
+14. [Checklist Implementasi](#checklist)
 
 ---
 
@@ -35,7 +36,7 @@
 **Setiap dialog NPC dibangun dari tiga lapisan:**
 
 1. **Personality** (§2) — tag sifat singkat yang mengatur pilihan kata dan nada bicara, dijaga konsisten di setiap baris yang diucapkan NPC tersebut.
-2. **Function** (§4-6) — apa yang sebenarnya dilakukan NPC ini secara mekanik (toko, hub quest, penyampai lore, bark flavor).
+2. **Function** (§4-6, §13) — apa yang sebenarnya dilakukan NPC ini secara mekanik (toko, hub quest, penyampai lore, trainer, bark flavor).
 3. **State** (§3) — state dialog mana dari sekumpulan kecil state yang sedang aktif (locked, available, in-progress, ready to turn in, completed).
 
 Ini meniru cara Path System (Master Bible §Path System) memisahkan *identitas* dari *mekanik* — personality dialog adalah flavor, state dialog adalah hook sistem yang sebenarnya.
@@ -106,17 +107,17 @@ NPC: "You look tired. Sit, eat first — business can wait."
 NPC (setelah Rest dibeli): "There. Colour's back in your face. Go on, then — and mind the Forest Zone, it's been busy."
 ```
 
-## Blacksmith — Human City (Gruff-Warm)
+## Blacksmith — Human City (Gruff-Warm) — Updated for City Content Addendum
 
 ```text
-[TORV IRONHAND — Blacksmith, Gruff-Warm]
+[TORV IRONHAND — Blacksmith Trainer, Gruff-Warm]
 STATE: Idle (menu toko)
-NPC: "You're bleeding on my floor. Sit. What do you need — sharper, or stronger?"
-  > Option: "Upgrade my weapon." → Membuka menu Upgrade (tier Master Bible §Equipment Pricing Curve)
-  > Option: "What's this material worth?" → Membuka menu Sell, harga beli NPC sesuai Economy doc §Gold Sources
+NPC: "You're bleeding on my floor. Sit. Buying, learning, or you want me to check someone else's work?"
+  > Option: "Buy a weapon (fallback price)." → Membuka menu NPC Fallback (harga +20%, Standard quality, sesuai Economy doc §Equipment Pricing Curve)
+  > Option: "Teach me the trade." → Membuka menu Blacksmith Profession training (resep dasar Common-Uncommon)
+  > Option: "Can you check this piece someone made me?" → Membuka menu Appraisal (fee kecil, mengonfirmasi tier kualitas Fine/Masterwork/Flawless dari hasil craft player lain)
   > Option: "Nothing, just looking." → "Then stop bleeding on my floor."
-NPC (upgrade berhasil): "There. Don't waste it."
-NPC (roll crafting gagal): "Hah. Metal's stubborn today. Didn't take. Materials are half gone — bring more, or come back when you're stronger."
+NPC (setelah appraisal): "Hah. Masterwork. Whoever made this knows the trade better than half my old apprentices. Worth every coin you paid."
 ```
 
 ## Armorer — Human City (Formal-Proud)
@@ -272,7 +273,7 @@ NPC: "The grove does not rush. Neither will I. You came for Earth's teaching, or
   > Option: "Do all Elves feel this way?" → "Most. Time moves oddly under the World Tree. You will understand, in a decade or two. Or you won't need to — humans rarely stay that long."
 ```
 
-## Elf Elder — Elf City, World Tree Hub (gabungan Serene-Distant / Weary-Wise — NPC lore "bicara hati-hati" yang sudah ditetapkan di Master Bible §Timeline)
+## Elf Elder — Elf City, World Tree Hub (gabungan Serene-Distant / Weary-Wise)
 
 ```text
 [ELDER SILVANESSA — Elf Elder, Weary-Wise]
@@ -295,6 +296,99 @@ Flavor NPC (asisten pandai besi, penjaga merchant, dll.) tidak mendapat dialogue
 - *Off-duty Adventurer (ambient, NPC non-toko):* "Forest Zone's been rough today." / "Anyone seen a Guild quest worth the walk?" / "I miss when Rank D felt hard."
 
 **Patokan umum:** setiap kota butuh sekitar 6-8 NPC bark-only agar terasa ramai pada skala target (1000 concurrent, sesuai header Master Bible) tanpa membengkakkan jumlah NPC dialogue-tree penuh melebihi ~12/kota yang sudah ditetapkan di Map Structure.
+
+---
+
+# 🏙️ CITY CONTENT ADDENDUM NPC & SERVICE DIALOGUE
+
+Bagian ini menyatukan NPC baru dan fungsi sosial yang ditambahkan oleh `Lost Soul City Content Addendum.md`. Detail mekanik profesi, Cafe, Colosseum, Trade Post, Guild Bank, dan Market tetap berada di addendum; bagian ini hanya mendefinisikan interaksi dialog yang diperlukan agar sistem tersebut terhubung ke NPC framework.
+
+## Apothecary Lyra — Human City, Temple District (Warm-Nurturing, sedikit tegas soal takaran)
+
+```text
+[APOTHECARY LYRA — Alchemist Trainer, Warm-Nurturing]
+STATE: Idle (menu toko)
+NPC: "Sit down before you spill something on my counter. What do you need — a potion, or the knowledge to make your own?"
+  > Option: "Buy potions (fallback price)." → Membuka menu NPC Fallback Potion (harga +20% dari baseline yang berlaku, Standard quality)
+  > Option: "Teach me alchemy." → Membuka menu Alchemist Profession training
+  > Option: "Just looking." → "Careful what you touch, then. Some of this bites."
+```
+
+## Chef Trainer — Placeholder (semua kota)
+
+Sampai keputusan NPC unik ditetapkan, Chef Trainer memakai bark placeholder. Fungsi mekaniknya adalah membuka training Chef dan akses crafting Food Buff di Cafe.
+
+```text
+[CHEF TRAINER — Chef Profession, Warm-Nurturing]
+STATE: Idle
+NPC: "Bring me good meat and I'll show you what a real Feast tastes like."
+  > Option: "Teach me cooking." → Membuka menu Chef Profession training
+  > Option: "What can I make here?" → Membuka menu Food Buff recipes / Cafe crafting station
+```
+
+## Jeweler Trainer — Placeholder (semua kota)
+
+Sampai keputusan NPC unik ditetapkan, Jeweler Trainer memakai bark placeholder. Fungsi mekaniknya adalah membuka training Jeweler dan layanan Socketing.
+
+```text
+[JEWELER TRAINER — Jeweler Profession, Sharp-Mercantile]
+STATE: Idle
+NPC: "Gems don't lie. Bring me something worth cutting."
+  > Option: "Teach me jewelry." → Membuka menu Jeweler Profession training
+  > Option: "Socket an item." → Membuka menu Socketing; fee ditentukan Jeweler player, 50-500 gold menurut rarity item
+```
+
+## Colosseum Announcer — Semua Kota (Flavor, Bark-only)
+
+```text
+[COLOSSEUM ANNOUNCER — Flavor NPC, Bark-only]
+STATE: Idle
+NPC (pool):
+  - "Place your bets, adventurers — the pit doesn't wait!"
+  - "Tonight's bracket: eight enter, one leaves with the title."
+  - "Fair fight. Winner takes the pot."
+```
+
+**Fungsi naratif:** announcer tidak menjadi vendor atau quest giver. Ia hanya menghidupkan arena dan event, sementara Betting Panel/Tournament Bracket adalah UI system surface.
+
+## Trade Post — Hunter's Outpost, Central Hunting Ground
+
+Trade Post menggunakan NPC service bark ringan; transaksi sebenarnya terjadi melalui **Trade Window** server-authoritative, bukan melalui NPC inventory.
+
+```text
+[TRADE POST ATTENDANT — Neutral Service NPC, Sharp-Mercantile]
+STATE: Idle
+NPC: "Human, Demon, Elf — doesn't matter here. Put your goods on the table and let the Trade Window do the rest."
+  > Option: "Open Trade." → Membuka Trade Window player-to-player dengan lock 3 detik
+  > Option: "Just looking." → Dialog ditutup
+```
+
+## Guild Bank — Guild Hall
+
+Guild Bank tidak membutuhkan dialogue tree baru; interaksi fisik membuka shared-storage UI. Bark dapat digunakan sebagai ambience.
+
+```text
+[GUILD BANK STEWARD — Utility NPC, Formal-Proud]
+STATE: Idle
+NPC: "The Guild keeps what its members can trust it to keep. Deposits and withdrawals are recorded."
+  > Option: "Open Guild Bank." → Membuka shared storage + transaction log
+  > Option: "How does this work?" → Menampilkan ringkasan izin role Leader/Officer/Member dari Guild UI
+```
+
+## Cafe — Residential District
+
+Cafe berfungsi sebagai tempat Chef dan social/RP spot. NPC bark-only dapat memberi flavor ringan tanpa menambah quest baru.
+
+```text
+[CAFE SERVER — Flavor NPC, Warm-Nurturing]
+STATE: Idle
+NPC (pool):
+  - "Kitchen's busy today. Someone's been making Feast after Feast."
+  - "Need a seat? Take your time."
+  - "Rumor says the road to the Central Hunting Ground has been busy again."
+```
+
+Rumor board di dekat pintu masuk memakai teks flavor seputar Central Mystery; tidak membuka quest baru.
 
 ---
 
@@ -325,7 +419,7 @@ Reward di bawah memakai nilai Main Quest Tier 1 dari Economy doc §Quest Rewards
 - **NPC (Ready):** "[Path Name]. Suits you, from what I've heard of your fights. Wear it well — or don't, and pick a different one later. No penalty, no judgment."
 - **Reward:** 200 gold (210g dengan bonus), 1200 EXP, weapon Uncommon sesuai Path yang dipilih
 
-### Quest 4: "The Ledger's Question" (Guild Master Alaric → dilanjut ke Sister Elowen, menanamkan benih Central Mystery)
+### Quest 4: "The Ledger's Question" (Guild Master Alaric → Sister Elowen)
 
 - **Objective:** Bicara dengan Sister Elowen di Temple District
 - **NPC Alaric (Available):** "One more thing, before I stop hovering over you like a new recruit. The Guild ledger marks everyone who enters this world — but nobody's ever explained *how* it knows. Go ask Sister Elowen. She has... theories. So does everyone. None of them agree."
@@ -380,64 +474,54 @@ Posted: [X hari lalu] | Expires: [7 hari sejak posting]"
 ### Pemenuhan (Player B)
 
 ```text
-[BOARD CLERK — Sharp-Mercantile]
-NPC: "You've got what [Player A] is after? Hand it here, I'll verify and pay out — minus nothing on your end, the fee already came out of their pocket."
-  > Memverifikasi item di inventory sesuai listing
-NPC: "Confirmed. [Offer]g transferred. Pleasure doing business — for me, anyway, I didn't lift a finger."
+NPC: "Delivered: [Item Name] ×[Quantity]. Payment released: [Offer]g."
 ```
 
-**Catatan:** sesuai Economy doc §Gold Sources, *pemosting* membayar `Item_Base_Value + 10% tax` dan *pemenuh* menerima nilai dasar item (pajak sudah dipotong saat posting, bukan saat pemenuhan) — baris Board Clerk di atas sengaja ditulis untuk memperjelas timing ini, karena "ke mana perginya 10% saya" adalah pertanyaan support yang bisa diperkirakan kalau tidak dijelaskan.
+---
+
+# 🧬 ATURAN VARIASI DIALOG PER RAS
+
+Struktur mekanik dialog tetap sama antar kota, tetapi vocabulary, idiom, dan bark harus mengikuti identitas ras. Utility/trainer NPC yang secara canon belum unik dapat memakai role/personality yang sama dengan penyesuaian tema kota.
+
+- **Human City:** formal, civic, guild/ledger language lebih sering.
+- **Demon City:** lebih direct, status/strength language lebih sering; War Plaza/Colosseum bark lebih agresif.
+- **Elf City:** lebih tenang, nature/metaphor language; trainer dialog lebih ritual/organic.
+
+Untuk Trainer Chef/Jeweler dan service NPC baru, variasi ras dilakukan pada bark dan pembuka dialog sampai NPC unik diputuskan.
 
 ---
 
-# 🎨 ATURAN VARIASI DIALOG PER RAS
+# 🔴 GATING REPUTASI & STATUS CRIMINAL
 
-Alih-alih menulis dialog ~3x lipat, NPC Demon City dan Elf City memakai ulang **struktur role + state yang sama** seperti contoh Human City di atas, dengan pergeseran nada yang konsisten berikut:
+Dialog dan opsi UI mengikuti status pemain tanpa mengubah state machine utama.
 
-| Elemen | Human City | Demon City | Elf City |
-|---|---|---|---|
-| **Sapaan default** | "Adventurer" | "Blood" / "Fighter" (tersirat rasa hormat yang harus diperoleh) | "Wanderer" / "Seedling" (penuh sayang, sedikit merendahkan) |
-| **Framing pertempuran** | Tugas, perlindungan | Kekuatan, bertahan hidup bagi yang mampu | Kebutuhan, dengan enggan |
-| **Bicara soal System/Level** | Penuh hormat (sesuai lore Age of Settlement) | Bukti kelayakan ("System doesn't lie about strength") | Sedikit berjarak ("alat, bagaimanapun asal-usulnya") |
-| **Nada setara Guild Master** | Formal-Proud (Alaric) | Brash-Aggressive, menguji pemain secara verbal dulu sebelum menerima | Serene-Distant, tidak terburu-buru bahkan saat quest mendesak |
-| **Panjang kalimat khas** | Sedang, lengkap | Pendek, terpotong | Lebih panjang, melebar |
+## Reputation
 
-**Contoh penerapan — pembuka Quest 1 versi setara Guild Master Demon City:**
+- Reputasi lokal dapat membuka dialog tambahan, diskon, atau opsi trainer sesuai sistem yang direferensikan oleh NPC.
+- Higher reputation → NPC dapat menyebut nama pemain dan memberi flavor line lebih personal.
 
-> "New blood. The System marked you before you finished walking through that gate — I felt the ledger shift. Question is whether you're worth the ink. Let's find out." → struktur AVAILABLE/IN PROGRESS/READY sama seperti tree Alaric, hanya nada bicaranya berbeda.
+## Criminal
 
----
-
-# 🔒 GATING REPUTASI & STATUS CRIMINAL
-
-Menghubungkan dialog langsung ke Master Bible §PvP & Criminal System, supaya penulis/dev tidak perlu menebak bagaimana seharusnya NPC bereaksi:
-
-| Status Pemain | Perilaku NPC Utility | Perilaku NPC Quest | Perilaku NPC Lore |
-|---|---|---|---|
-| **Normal** | Akses toko penuh | Akses quest penuh | Dialog penuh |
-| **Criminal (level rendah)** | Toko tetap buka (sesuai Master Bible: hanya *Player Shop* yang melarang Criminal) | Tab bounty di Quest Board disamarkan untuk visibilitas bounty diri sendiri; quest lain tidak terpengaruh | Tidak terpengaruh — lore tidak menghakimi |
-| **Criminal (level tinggi / berulang)** | Sama seperti di atas, tapi ditambah satu bark: *"Make it quick."* (NPC Gruff-Warm/Brash) atau *"...I'd rather you didn't linger."* (NPC Warm-Nurturing) | Quest Giver yang berafiliasi Guild (Guild Master, Reward Officer) menolak quest baru sampai Criminal Rehabilitation (Master Bible) selesai: *"Guild doesn't hand work to a marked blade. Clean your name first."* | Tidak terpengaruh |
-| **Reputasi Guild tinggi** (dari penyelesaian quest berulang — sistem ringan baru, lihat catatan) | Bark diskon: *"For you? Fine, I'll round down."* | Guild Master memberi satu baris pengakuan idle di milestone reputasi tertentu, tanpa perubahan mekanik | Tidak terpengaruh |
-
-**Catatan soal Guild Reputation:** Master Bible saat ini belum mendefinisikan stat reputasi numerik di luar reputasi Guild (level guild, bukan level pemain) dan reputasi Blacksmith yang disebut di side quest "Apprentice's Request" di atas. Perlakukan reputasi per-NPC (seperti diskon 5% milik Torv di reputasi 50) sebagai **state flavor lokal yang terikat ke NPC tersebut** — sekadar counter sederhana per pemain per NPC, bukan sistem global baru — supaya tidak perlu bagian baru di Progression System Master Bible.
+- NPC tetap dapat diajak bicara selama pemain berada di kota.
+- Player Shop dan fungsi tertentu dapat menampilkan block state sesuai Economy/UI docs.
+- Bounty/Criminal information dapat muncul melalui Board Clerk/Town Crier tanpa membuat pemain Criminal mendapatkan status quest yang tidak sesuai.
 
 ---
 
 # ✅ CHECKLIST IMPLEMENTASI
 
-- [ ] Bangun UI dialogue tree yang mendukung model 5-state (§3) dengan percabangan opsi
-- [ ] Implementasikan Personality Tag sebagai metadata NPC (mengarahkan style guide voice-line untuk penulis di masa depan, bukan sistem yang kaku)
-- [ ] Hubungkan Quest Board Clerk ke listing Player-Generated Quest (alur posting/pemenuhan §10)
-- [ ] Implementasikan counter reputasi lokal per-NPC (ringan, lihat catatan §12) untuk hook diskon ala Blacksmith
-- [ ] Lengkapi ~24 NPC Utility/Quest yang tersisa (Demon + Elf City) memakai tabel Variasi Ras §11 terhadap template Human City di §4-5
-- [ ] Tulis teks lengkap chain "Awakening" untuk pembuka Demon City dan Elf City (struktur 4-beat sama seperti §8)
-- [ ] Putuskan rekaman VO atau text-only (memengaruhi apakah bark pool di §7 butuh varian audio)
-- [ ] Cross-check setiap angka gold/EXP yang disebut di dialog quest terhadap Economy Balancing doc §Quest Rewards sebelum dikunci final
+- [ ] Tulis dialogue tree penuh untuk Chef Trainer dan Jeweler Trainer (saat ini masih placeholder, §13)
+- [ ] Cross-check ulang semua angka gold di dialog Blacksmith/Alchemist terhadap Economy doc §Equipment Pricing Curve & §Consumable Pricing setelah markup 20% diterapkan
+- [ ] Finalisasi nama/personality NPC Chef Trainer dan Jeweler Trainer
+- [ ] Tambahkan bark khusus per kota untuk Colosseum Announcer
+- [ ] Tambahkan Trade Post Attendant ke NPC budget Central Hunting Ground
+- [ ] Tambahkan Guild Bank Steward hanya jika ruang Guild Hall membutuhkan NPC interaksi; UI dapat dibuka langsung dari bank object bila tidak
+- [ ] Review bark Cafe/Rumor Board agar tidak membuka quest baru secara tidak sengaja
 
 ---
 
-**End of NPC Dialogue & Quest Text Document**
+**End of NPC Dialogue & Quest Text**
 
 Terakhir Diperbarui: September 2026
 
-Review Berikutnya: Setelah Phase 2 (Core Systems) — implementasi sistem quest
+Review Berikutnya: Setelah NPC City Content Addendum diimplementasikan dan diuji in-game
