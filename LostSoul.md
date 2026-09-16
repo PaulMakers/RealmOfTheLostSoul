@@ -360,12 +360,12 @@ Found through exploration, quest chains, and rare conditions
 
 - Central Plaza (hub, orientation)
 - Residential District (inn, blacksmith, armorer, **Cafe**)
-- Adventurer Guild (quest hub, **dungeon entrance basement**)
-- Market District (shops, player stalls, trading, **Player Shops + Profession Booths**)
-- Temple District (light element story, **Apothecary Lyra**) 
+- Adventurer Guild (quest hub, **dungeon entrance basement**, **Guild Bank room**)
+- Market District (shops, player stalls, trading, **Player Shops + Profession Booths**, Merchant Guild)
+- Temple District (light element story, **Apothecary Lyra**)
 - Gathering Hub (buy tools)
 - **Colosseum** (tournament + duel arena)
-- **Trade Post** (see Map 3; located in Central Hunting Ground, not Human City)
+- Trade Post is **not** in Human City; it is located at Hunter's Outpost in Map 3
 
 **NPCs:** ~12 total + city addendum service/ambient NPCs
 
@@ -382,7 +382,7 @@ Found through exploration, quest chains, and rare conditions
 - War Plaza (hub, **Colosseum** — upgrade from duel arena, tournament mingguan + duel kasual)
 - Barracks District (weapons, armor)
 - Demon Guild Hall (quest hub, **dungeon entrance basement**, **Guild Bank room**)
-- Dark Market (**Player Shops + Profession Booths**, shops, trading)
+- Dark Market (**Player Shops + Profession Booths**, Merchant Guild, shops, trading)
 - Shadow Temple (dark element story)
 - Residential District (inn, **Cafe**)
 - Gathering Hub (buy tools)
@@ -404,7 +404,7 @@ Found through exploration, quest chains, and rare conditions
 - World Tree Hub (central, lore)
 - Residential District (inn, elf crafts, **Cafe**)
 - Elf Guild Hall (quest hub, **dungeon entrance basement**, **Guild Bank room**)
-- Forest Market (shops, smaller than human/demon, **Profession Booths**)
+- Forest Market (shops, smaller than human/demon, **Profession Booths**, Merchant Guild)
 - Nature Temple (earth element story)
 - Gathering Hub (buy tools, +20% gathering bonus)
 - **Colosseum** (skala lebih kecil, tetap ada untuk konsistensi lintas ras)
@@ -979,16 +979,17 @@ Clamped between 10% (hard floor) and 95% (hard ceiling)
 
 ## NPC Dialogue Structure
 
-**Fully detailed in a companion document:** **`Lost_Soul_NPC_Dialogue_Quest_Text.md`**
+**Fully detailed in a companion document:** **`Lost Soul NPC Dialog & Quest Text.md`**
 
 Covers:
 
 - Dialogue tree notation + the 5-state quest logic (Locked → Available → In Progress → Ready to Turn In → Completed)
 - Personality Tag framework (8 tags) so ~36 named NPCs feel distinct without needing 36 bespoke voices
-- Fully worked dialogue trees for every Utility, Quest, and Lore/Story NPC role, written for Human City with a Race Variation table (§11 of that doc) covering how Demon/Elf City reskin the same structure
+- Fully worked dialogue trees for every Utility, Quest, and Lore/Story NPC role, written for Human City with a Race Variation table covering how Demon/Elf City reskin the same structure
 - Flavor NPC bark-pool pattern for ambient city NPCs
-- Full "Awakening" opening Main Quest chain text (4 quests), Side Quest examples, and the Player-Generated Quest posting/fulfillment scaffolding
+- Full "Awakening" opening Main Quest chain text (4 quests), Side Quest examples, and Player-Generated Quest posting/fulfillment scaffolding
 - Reputation & Criminal Status dialogue gating, tied to the PvP & Criminal System above
+- City Content Addendum service dialogue: Apothecary Lyra, Chef/Jeweler trainer placeholders, Colosseum Announcer, Trade Post Attendant, Guild Bank Steward, and Cafe Server
 
 ---
 
@@ -1037,24 +1038,24 @@ Three ages, building directly on the Etymology and Central Mystery above. The Sy
 
 - A civilization known to history only as **"the Lost"** existed before any recorded human, demon, or elf history — their true name, appearance, and fate are all unknown, even to modern scholars.
 - The Lost either created or discovered the System (deliberately unclear — in-world scholars argue both sides, which is exactly the seed for the Central Mystery).
-- They built the three **Dungeon Cores** — the same Cores sitting at Floor 100 of the Human, Demon, and Elf Dungeons today. Why each Core happens to sit beneath what later became each race's capital city is itself an open question in-world (a hook the Ancient Ruins hidden zone and the Voidwalker hidden Path can play with).
-- The Lost vanished. No war, no ruins showing destruction — just absence. The dominant in-world theory (never confirmed) is that they merged their own souls/essence into the world itself, becoming the passive energy source that now powers Level-ups, Skill Books, and Dungeon mastery — per the Etymology above.
+- They built the three **Dungeon Cores** — the same Cores sitting at Floor 100 of the Human, Demon, and Elf Dungeons today. Why each Core happens to sit beneath what later became each race's capital city is itself an open question in-world.
+- The Lost vanished. No war, no ruins showing destruction — just absence. The dominant in-world theory (never confirmed) is that they merged their own souls/essence into the world itself, becoming the passive energy source that now powers Level-ups, Skill Books, and Dungeon mastery.
 - What remains: the three Dungeon Cores, scattered ruins (the Ancient Ruins zone in Central Hunting Ground), and Skill Books — crystallized fragments of whatever the Lost left behind.
 
 ### Age of Settlement (Medieval Age)
 
-- Human and Demon ancestors settle into the world generations after the Lost's disappearance and find the System already active and usable — where they came from before that is left open, consistent with keeping the origin mystery intact.
+- Human and Demon ancestors settle into the world generations after the Lost's disappearance and find the System already active and usable.
 - **Humans** settle around ruins that become Human City, forming the structured monarchy/council already established — early System use is treated with reverence, close to religious.
 - **Demons** settle their own territory and adopt the "rule by strength" culture already established — to them, the System proves that only the strong deserve power.
-- **Elves** are already present, independent, tied to the World Tree in their own dimension. Some Elf oral history claims they're the closest living link to the Lost — unconfirmed, but it's why Elves get access to all four basic elements rather than one, and gives the Elf Elder NPC a natural reason to speak carefully about the subject.
-- Competition over rare materials, Skill Books, and dungeon access sparks the first Human-Demon skirmishes — the start of the "centuries-old conflict" already established in Three Races & Conflicts.
-- Adventurer Guilds (Human) and their Demon-side equivalent are founded in this era specifically to regulate dungeon access and prevent unchecked power grabs from Core-adjacent resources — giving the Guild system an in-world reason to exist beyond "quest hub."
+- **Elves** are already present, independent, tied to the World Tree in their own dimension. Some Elf oral history claims they're the closest living link to the Lost — unconfirmed.
+- Competition over rare materials, Skill Books, and dungeon access sparks the first Human-Demon skirmishes.
+- Adventurer Guilds (Human) and their Demon-side equivalent are founded in this era specifically to regulate dungeon access and prevent unchecked power grabs from Core-adjacent resources.
 
 ### Modern Day (Cold War Era — present, where the game begins)
 
 - Direct war has cooled into the Cold War already established: skirmishes and sabotage at Central Hunting Ground, no open war.
-- The System, Levels, Dungeons, and Skill Books are now completely normalized — nobody alive remembers a world without them, which is precisely why the Central Mystery has gone from urgent to academic. Most people simply don't think to question it, which is what makes the player (a newcomer) uncovering it via Hidden Paths narratively believable rather than "how did nobody else notice this."
-- Certain individuals and factions — mirrored by the Hidden Paths already defined (Voidwalker, Archsage, Twilight Reaper, Saint of Light) — actively dig into the truth, for reasons ranging from scholarly curiosity to darker ambitions. This is the natural on-ramp for late-game/expansion story content once the Central Mystery is ready to be partially unveiled.
+- The System, Levels, Dungeons, and Skill Books are now completely normalized — nobody alive remembers a world without them, which is precisely why the Central Mystery has gone from urgent to academic.
+- Certain individuals and factions — mirrored by the Hidden Paths already defined (Voidwalker, Archsage, Twilight Reaper, Saint of Light) — actively dig into the truth, for reasons ranging from scholarly curiosity to darker ambitions.
 
 ---
 
@@ -1067,13 +1068,13 @@ Three ages, building directly on the Etymology and Central Mystery above. The Sy
 Multiple **Places** (not one giant place) linked via `TeleportService`, matching the "8 separate maps" performance note already in Map Structure:
 
 - **Persistent places:** Human City, Demon City, Elf City, Central Hunting Ground, Elf Hunting Ground — always-on, shared by all players who enter them.
-- **Instanced places:** Human/Demon/Elf Dungeons — each party gets a `TeleportService:ReserveServer()` private instance on entry, so dungeon floor state (monsters, loot rolls, floor-randomization seed) never leaks between parties and one party's boss pull doesn't affect another's.
+- **Instanced places:** Human/Demon/Elf Dungeons — each party gets a `TeleportService:ReserveServer()` private instance on entry, so dungeon floor state (monsters, loot rolls, floor-randomization seed) never leaks between parties.
 - **Code organization:** `ServerScriptService` split into one ModuleScript per domain — `CombatService`, `EconomyService`, `GuildService`, `DungeonService`, `CraftingService`, `PvPService` — each with a small, explicit public API.
 
 ### DataStore (Player Save Data)
 
 - Use a session-locking wrapper (ProfileService-style)
-- **Per-player profile contents:** level/EXP, stat allocation, unlocked Paths + Path EXP, learned Skill Books, inventory, equipped gear (+ lock status), gold, gathering/crafting levels, criminal status + level, guild membership, trade history log.
+- **Per-player profile contents:** level/EXP, stat allocation, unlocked Paths + Path EXP, learned Skill Books, inventory, equipped gear (+ lock status), gold, gathering/crafting levels, profession levels + recipes, criminal status + level, guild membership, trade history log.
 - **Cross-place consistency:** profile follows teleports; load on `PlayerAdded`, save on `PlayerRemoving` and before teleport.
 - **Guild data** is a separate DataStore keyed by guild ID; use `UpdateAsync` with retry-on-conflict.
 
@@ -1116,7 +1117,7 @@ Covers:
 - Main HUD, Stat & Path menu, Inventory & Equipment, Quest Log, Shop & Trade Window, Combat & Dungeon UI, Guild & Social UI, Map & Navigation
 - PvP/Criminal status indicators tied to §PvP & Criminal System
 - Notification/Toast system
-- Settings & Accessibility (colorblind mode, text size, keybind remap)
+- Settings & Accessibility
 - City Content Addendum surfaces: crafting-quality badges, NPC fallback badge, Colosseum betting/bracket UI, and city sub-markers for Cafe/Colosseum/Trade Post
 - One open design question remains: fast travel between maps is not yet defined and needs a decision before World Map UI is finalized in Roblox Studio
 
@@ -1178,7 +1179,7 @@ Covers:
 - ✅ Roblox technical architecture (server structure, DataStore, networking, performance, security)
 - ✅ Balancing numbers (EXP-per-kill formula validated; gold-per-kill formula centralized in Economy doc)
 - ✅ Lore timeline (Age of the Lost, Age of Settlement, Modern Day — Central Mystery kept intact)
-- ✅ NPC dialogue & quest text (personality framework, dialogue trees per NPC role, Main/Side/Player-Generated quest text)
+- ✅ NPC dialogue & quest text plus City Content Addendum NPC/service dialogue
 - ✅ UI/UX final design plus City Content Addendum surfaces
 
 **Needs Detailing:**
@@ -1192,9 +1193,9 @@ Covers:
 Design is now 100% — remaining steps shift from *designing* to *building*:
 
 1. **Review this master file + companion docs** with team
-2. **Split into modular docs** for hand-off if the team finds the master file unwieldy during implementation
+2. **Split into modular docs** for hand-off if useful during implementation
 3. **Assign responsibilities** (Dev A = systems, Dev B = content) per the ModuleScript boundaries already defined in Technical Notes
-4. **Start Roblox dev** with map files + basic systems (Phase 1 of Development Checklist)
+4. **Start Roblox dev** with map files + basic systems (Phase 1)
 5. **Resolve the one open design question:** fast travel between maps
 6. **Implement City Content Addendum dependencies in order:** professions/materials → NPC trainer dialogue → shop/quality UI → Colosseum → Trade Post → Guild Bank room → final economy recalc
 7. **Iterate & balance** as you build — every formula in this bible is a first-pass tuning lever, not a guarantee
