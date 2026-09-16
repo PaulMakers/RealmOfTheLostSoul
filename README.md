@@ -12,13 +12,14 @@ This repository is the **design and AI execution source of truth** for Realm of 
 - [`LostSoul.md`](./LostSoul.md) — Master Game Bible. Core gameplay, progression, combat, skills, paths, world, maps, economy, NPCs, lore, and technical notes.
 
 ### 2. World and map design
+- [`Map Construction Specification.md`](./Map%20Construction%20Specification.md) — authoritative map construction rules.
 - [`Map Visual Style Bible (Human City).md`](./Map%20Visual%20Style%20Bible%20(Human%20City).md) — Human City visual and spatial rules.
 - [`Human City Build Package (A+B+C).md`](./Human%20City%20Build%20Package%20(A%2BB%2BC).md) — Human City construction package.
 - [`Lost Soul City Content Addendum.md`](./Lost%20Soul%20City%20Content%20Addendum.md) — City content additions and integration rules.
 
 ### 3. UI / UX
 - [`Lost Soul — UI Visual Style Bible.md`](./Lost%20Soul%20%E2%80%94%20UI%20Visual%20Style%20Bible.md) — Visual language for the UI.
-- [`Lost Soul UI UX Desain.md`](./Lost%20Soul%20UI%20UX%20Desain.md) — UX flows and screen behavior.
+- [`Lost Soul UI UX Design.md`](./Lost%20Soul%20UI%20UX%20Design.md) — canonical UX flows and screen behavior.
 - [`Lost Soul UI Construction Specification.md`](./Lost%20Soul%20UI%20Construction%20Specification.md) — Implementation-level UI construction rules.
 
 ### 4. Economy and content
@@ -47,7 +48,7 @@ When documents disagree, do **not** silently choose a convenient interpretation.
 
 1. `LostSoul.md` is the master gameplay/world authority unless a more specialized specification explicitly owns the same decision.
 2. Specialized specifications own their specific implementation domain:
-   - Map geometry/visuals → Map Visual Style Bible + Human City Build Package.
+   - Map geometry/visuals → Map Construction Specification + Map Visual Style Bible + Human City Build Package.
    - UI appearance → UI Visual Style Bible.
    - UI behavior/layout → UI UX Design + UI Construction Specification.
    - Economy numbers → Economy Balancing.
