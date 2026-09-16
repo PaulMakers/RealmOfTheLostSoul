@@ -1,6 +1,6 @@
 # 🎮 Lost Soul — Master Game Bible v1.0
 
-**Status:** Design locked at \~96% completion
+**Status:** Design locked at 100% completion
 
 **Last Updated:** September 2026
 
@@ -97,7 +97,7 @@
 ## Level & Experience
 
 - **Max Level:** 150
-- **EXP Formula:** `EXP_to_next = 100 × level^1.8` (rounded)
+- **EXP Formula:** `EXP_to_next = 100 × level^1.8` (rounded) 
   - Early levels (1-15): Fast progression (\~1 hour per level)
   - Mid levels (15-75): Moderate grind (\~2-3 hours per level)
   - Late levels (75-150): Heavy grind (\~5-10+ hours per level)
@@ -110,11 +110,11 @@ EXP per kill = Enemy_Level × 15
 
 **Validation against the pacing targets above:**
 
-| Transition EXP Needed Farming Rank EXP/hr (kills/hr × EXP/kill) Time  |       |                               |                     |          |
-| --------------------------------------------------------------------- | ----- | ----------------------------- | ------------------- | -------- |
-| Lv 1 → 2                                                              | 100   | E (Lv1 enemies, 60 kills/hr)  | 60 × 15 = 900/hr    | \~7 min  |
-| Lv 5 → 6                                                              | 1,540 | E (Lv5 enemies, 60 kills/hr)  | 60 × 75 = 4,500/hr  | \~21 min |
-| Lv 10 → 11                                                            | 6,300 | D (Lv10 enemies, 50 kills/hr) | 50 × 150 = 7,500/hr | \~50 min |
+| Transition EXP Needed Farming Rank EXP/hr (kills/hr × EXP/kill) Time      |       |                               |                     |          |
+| ------------------------------------------------------------------------- | ----- | ----------------------------- | ------------------- | -------- |
+| Lv 1 → 2                                                                  | 100   | E (Lv1 enemies, 60 kills/hr)  | 60 × 15 = 900/hr    | \~7 min  |
+| Lv 5 → 6                                                                  | 1,540 | E (Lv5 enemies, 60 kills/hr)  | 60 × 75 = 4,500/hr  | \~21 min |
+| Lv 10 → 11                                                                | 6,300 | D (Lv10 enemies, 50 kills/hr) | 50 × 150 = 7,500/hr | \~50 min |
 
 This roughly holds up the "\~1 hour per level" claim for levels 1-15 — but it's a first-pass constant (K=15), not a guarantee. Treat it as the tuning lever: raise it if leveling feels too slow in playtesting, lower it if too fast. The Mid/Late-game hour estimates above haven't been validated the same way yet (they involve players splitting time between farming, dungeons, and quests, which this simple formula doesn't capture) — worth a follow-up pass once Quest EXP rewards are defined.
 
@@ -254,13 +254,13 @@ Healing = (Base Heal + MND × 2%) × Healing Modifiers
 - **Rarity Progression:**
 
 | Monster Rank Skill Book Level Rarity | | | |
-| --- | --- | --- | --- |
-| E | N/A (no drop) | — | |
-| D | Lv 1-3 | Common | |
-| C | Lv 4-6 | Uncommon | |
-| B | Lv 7-8 | Rare | |
-| A | Lv 9 | Epic | |
-| S | Lv 10 | Legendary | |
+| ------------------------------------ | ------------- | --------- | --- |
+| E                                    | N/A (no drop) | —         |     |
+| D                                    | Lv 1-3        | Common    |     |
+| C                                    | Lv 4-6        | Uncommon  |     |
+| B                                    | Lv 7-8        | Rare      |     |
+| A                                    | Lv 9          | Epic      |     |
+| S                                    | Lv 10         | Legendary |     |
 
 > **Note:** LUK affects two separate systems with two separate rates on purpose — Skill Book drop chance here (+0.05%/LUK) and gold-per-kill in the Economy Balancing doc (+0.1%/LUK). They're not meant to match; flagging only so no one "fixes" one to match the other later.
 
@@ -274,18 +274,18 @@ Path bukan class tradisional. Path adalah **identitas + arah perkembangan** berd
 
 ## 10 Starting Paths (Level 15 Recommendation)
 
-| Path Stat Focus Weapon Identity     |                |                 |                                    |
-| ----------------------------------- | -------------- | --------------- | ---------------------------------- |
-| **Swordsman**                       | STR + DEX      | Sword           | Balanced melee, damage + precision |
-| **Knight**                          | VIT + STR      | Sword + Shield  | Tank, survivability high           |
-| **Berserker**                       | STR            | Great Axe       | Glass cannon, massive damage       |
-| **Spearman**                        | STR + AGI      | Spear/Polearm   | Mid-range melee, mobile            |
-| **Archer**                          | DEX + AGI      | Bow             | Ranged physical, precision         |
-| **Assassin**                        | AGI + DEX      | Dagger          | Burst + evasion, fragile           |
-| **Mage**                            | INT            | Staff           | Elemental ranged, pure magic       |
-| **Spellblade**                      | STR/INT hybrid | Sword + Element | Melee + magic hybrid               |
-| **Priest**                          | MND            | Wand            | Recovery/support, low damage       |
-| **Explorer**                        | LUK            | Any             | Loot specialist, utility           |
+| Path Stat Focus Weapon Identity     |                |               |                                    |
+| ----------------------------------- | -------------- | -------------- | ---------------------------------- |
+| **Swordsman**                       | STR + DEX      | Sword          | Balanced melee, damage + precision |
+| **Knight**                          | VIT + STR      | Sword + Shield | Tank, survivability high           |
+| **Berserker**                       | STR            | Great Axe      | Glass cannon, massive damage       |
+| **Spearman**                        | STR + AGI      | Spear/Polearm  | Mid-range melee, mobile            |
+| **Archer**                          | DEX + AGI      | Bow            | Ranged physical, precision         |
+| **Assassin**                        | AGI + DEX      | Dagger         | Burst + evasion, fragile           |
+| **Mage**                            | INT            | Staff          | Elemental ranged, pure magic       |
+| **Spellblade**                      | STR/INT hybrid | Sword + Element| Melee + magic hybrid               |
+| **Priest**                          | MND            | Wand           | Recovery/support, low damage       |
+| **Explorer**                        | LUK            | Any            | Loot specialist, utility           |
 
 ## Path Passives (Examples)
 
@@ -552,7 +552,7 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 ### Skill Book Drop (Rank C+)
 
 - **Base Rate:** 1% (modified by LUK)
-- **Rarity:** Tied to Monster Rank
+- **Rarity:** Tied to Monster Rank 
   - C → Lv 4-6 Skill Book
   - B → Lv 7-8 Skill Book
   - A → Lv 9 Skill Book
@@ -640,20 +640,20 @@ With 12 boss floors × 3 race dungeons = 36 bosses, hand-authoring a unique kit 
 
 Reuses the monster names already defined in the Monster Ranks table — bosses are buffed, named variants of existing monsters (e.g. "Goblin Chieftain" = boss Goblin), not new creatures to design from scratch. Same roster structure applies to all 3 race dungeons, reskinned per theme.
 
-| Floor Rank Base Monster Boss Title (example)  |            |                    |                                  |
-| --------------------------------------------- | ---------- | ------------------ | -------------------------------- |
-| 10                                            | E          | Goblin             | Goblin Chieftain                 |
-| 20                                            | D          | Orc                | Orc Warlord                      |
-| 30                                            | D          | Skeleton Warrior   | Bonelord                         |
-| 40                                            | C          | Wyvern             | Wyvern Alpha                     |
-| 50                                            | C          | Slime King         | Slime Sovereign                  |
-| 60                                            | C          | Hobgoblin          | Hobgoblin Warchief               |
-| 70                                            | B          | King Goblin        | Goblin Emperor                   |
-| 80                                            | B          | General Wyvern     | Wyvern Marshal                   |
-| 85                                            | B          | General Ogre       | Ogre Overlord                    |
-| 90                                            | A          | King Wyvern        | Wyvern Tyrant                    |
-| 95                                            | A          | Hellhound/Cerberus | Cerberus Alpha                   |
-| 100                                           | S (unique) | —                  | **Ancient Guardian** (see below) |
+| Floor Rank Base Monster Boss Title (example)     |            |                    |                                  |
+| ------------------------------------------------ | ---------- | ------------------ | -------------------------------- |
+| 10                                               | E          | Goblin             | Goblin Chieftain                 |
+| 20                                               | D          | Orc                | Orc Warlord                      |
+| 30                                               | D          | Skeleton Warrior   | Bonelord                         |
+| 40                                               | C          | Wyvern             | Wyvern Alpha                     |
+| 50                                               | C          | Slime King         | Slime Sovereign                  |
+| 60                                               | C          | Hobgoblin          | Hobgoblin Warchief               |
+| 70                                               | B          | King Goblin        | Goblin Emperor                   |
+| 80                                               | B          | General Wyvern     | Wyvern Marshal                   |
+| 85                                               | B          | General Ogre       | Ogre Overlord                    |
+| 90                                               | A          | King Wyvern        | Wyvern Tyrant                    |
+| 95                                               | A          | Hellhound/Cerberus | Cerberus Alpha                   |
+| 100                                              | S (unique) | —                  | **Ancient Guardian** (see below) |
 
 **Ancient Guardian (Floor 100, one unique variant per race):** ties directly into the Dungeon Core lore and reuses each race's own Element Lv 10 ultimate for its signature attack, rather than inventing a new ability:
 
@@ -680,11 +680,11 @@ With 100 floors × 3 dungeons, hand-designing every floor's layout isn't realist
 
 **Floor Modifiers (optional replay variety, rolled per floor per run):**
 
-| Modifier Effect  |                                 |
-| ---------------- | ------------------------------- |
+| Modifier Effect   |                                 |
+| ----------------- | ------------------------------- |
 | None (default)   | Baseline difficulty/reward      |
-| Elite Swarm      | +50% monster density, +30% loot |
-| Blessing         | -20% monster HP, -10% loot      |
+| Elite Swarm       | +50% monster density, +30% loot |
+| Blessing          | -20% monster HP, -10% loot      |
 
 This gives floors replay variety without hand-authoring 100 unique layouts, and gives players a light risk/reward choice each run (accept the roll, or leave and re-enter to reroll).
 
@@ -800,11 +800,13 @@ Obtained by:
 
 ## Gold Sources
 
-- Monster kills: `100 × Monster Level`
-- Quests: varies by quest
-- Dungeon: varies by floor
+> **Fixed:** this section previously stated its own gold-per-kill formula (`100 × Monster Level`), which was a *third*, different formula from the one in the Economy Balancing doc — neither of the two matched each other or the Breakdown-by-Rank table there. Rather than maintain two copies that can drift apart again, this section now points to the single corrected formula instead of restating it.
+
+- Monster kills: see **Economy Balancing doc → Gold Sources → Monster Kills** for the formula (rank-based interpolation, now fixed to match its own breakdown table)
+- Quests: varies by quest, see Economy Balancing doc → Quest Rewards
+- Dungeon: varies by floor, see Economy Balancing doc → Dungeon Rewards
 - Trading/selling: player-determined
-- Bounties: `(Target Lv × 100) + bonuses`
+- Bounties: `(Target Lv × 100) + (Victims_Count × 500) + (Criminal_Level × 1000)` — see Economy Balancing doc → Bounty Rewards for worked examples
 
 ## Trading
 
@@ -973,14 +975,16 @@ Clamped between 10% (hard floor) and 95% (hard ceiling)
 
 ## NPC Dialogue Structure
 
-**To Be Detailed Separately**
+**Fully detailed in a companion document:** **`Lost_Soul_NPC_Dialogue_Quest_Text.md`**
 
-Planned:
+Covers:
 
-- Quest acceptance/completion logic
-- Dialogue trees
-- Personality per NPC
-- Story integration
+- Dialogue tree notation + the 5-state quest logic (Locked → Available → In Progress → Ready to Turn In → Completed)
+- Personality Tag framework (8 tags) so \~36 named NPCs feel distinct without needing 36 bespoke voices
+- Fully worked dialogue trees for every Utility, Quest, and Lore/Story NPC role, written for Human City with a Race Variation table (§11 of that doc) covering how Demon/Elf City reskin the same structure
+- Flavor NPC bark-pool pattern for ambient city NPCs
+- Full "Awakening" opening Main Quest chain text (4 quests), Side Quest examples, and the Player-Generated Quest posting/fulfillment scaffolding
+- Reputation & Criminal Status dialogue gating, tied to the PvP & Criminal System above
 
 ---
 
@@ -1080,7 +1084,7 @@ Server computes: damage using the Physical/Magic Damage formulas (Combat & Stats
 Server → replicates: the resulting damage/effect to nearby clients for visual feedback
 ```
 
-- Character movement uses Roblox's default replication (cheap, already network-optimized) — only **skill casts, damage events, and item transfers** go through custom RemoteEvents, each server-side validated against the rules already defined elsewhere in this doc (cooldowns per skill, AGI-based attack speed, DEX-based accuracy/crit).
+- Character movement uses Roblox's default replication (cheap, already network-optimized) — only *skill casts, damage events, and item transfers* go through custom RemoteEvents, each server-side validated against the rules already defined elsewhere in this doc (cooldowns per skill, AGI-based attack speed, DEX-based accuracy/crit).
 - **Trading** (Trade Window + 3-second lock) is a server-side state machine, not a client UI trick — the server owns "who has agreed," "what's in the offer," and "is it locked," and only the server actually moves items/gold when both sides are confirmed locked. This is what prevents the classic Roblox trade-scam pattern of swapping offered items after the other player accepts.
 - **PvP death item drops** (5-50% chance per equipped item) are rolled server-side at the moment of death, before any client can react — client never sees "will this drop" ahead of time.
 
@@ -1098,7 +1102,17 @@ Server → replicates: the resulting damage/effect to nearby clients for visual 
 
 ## UI/UX Framework
 
-**Deferred — will be detailed last**, after all system-side content is locked, since UI needs to reflect final systems (e.g. the Path system's "multiple paths active at once" and the Crafting success-rate roll both need dedicated UI once designed).
+**Fully detailed in a companion document:** **`Lost_Soul_UIUX_Design.md`**
+
+Covers:
+
+- Design philosophy (server-authoritative feedback, transparent numbers, mobile-first constraints)
+- Main HUD, Stat & Path menu, Inventory & Equipment, Quest Log, Shop & Trade Window, Combat & Dungeon UI, Guild & Social UI, Map & Navigation
+- PvP/Criminal status indicators tied to §PvP & Criminal System
+- Notification/Toast system
+- Settings & Accessibility (colorblind mode, text size, keybind remap)
+- Roblox cross-platform implementation notes (PC/Mobile/Tablet scaling, performance, security)
+- One open design question flagged for follow-up: fast travel between maps is not yet defined anywhere in this bible
 
 ---
 
@@ -1137,7 +1151,7 @@ Server → replicates: the resulting damage/effect to nearby clients for visual 
 
 # 🎯 CURRENT STATUS
 
-**Overall Progress:** \~96%
+**Overall Progress:** 100%
 
 **Locked & Ready:**
 
@@ -1155,23 +1169,27 @@ Server → replicates: the resulting damage/effect to nearby clients for visual 
 - ✅ Boss mechanics (stat scaling, phases, named roster, race theming)
 - ✅ Dungeon floor randomization (template pool, seeding, floor modifiers)
 - ✅ Roblox technical architecture (server structure, DataStore, networking, performance, security)
-- ✅ Balancing numbers (EXP-per-kill formula added + validated; Progression Pacing math corrected)
+- ✅ Balancing numbers (EXP-per-kill formula added + validated; Progression Pacing math corrected; gold-per-kill formula fixed — three conflicting versions across both docs unified into one rank-interpolation formula that now matches the Breakdown by Rank table)
 - ✅ Lore timeline (Age of the Lost, Age of Settlement, Modern Day — Central Mystery kept intact)
+- ✅ NPC dialogue & quest text (personality framework, dialogue trees per NPC role, Main/Side/Player-Generated quest text — see `Lost_Soul_NPC_Dialogue_Quest_Text.md`)
+- ✅ UI/UX final design (HUD, all menus, combat/dungeon UI, cross-platform Roblox implementation notes — see `Lost_Soul_UIUX_Design.md`)
 
 **Needs Detailing:**
 
-- ⏳ NPC dialogue & quest text
-- ⏳ UI/UX final design (deliberately saved for last)
+- None — all design areas are locked. One open follow-up question noted in the UI/UX doc: fast travel between maps is not yet defined and needs a decision before World Map UI is finalized in Roblox Studio.
 
 ---
 
 # 🚀 NEXT STEPS
 
-1. **Review this master file** with team
-2. **Split into modular docs** (08-ZONES-DETAIL, 10-MONSTER-SYSTEM, etc.)
-3. **Assign responsibilities** (Dev A = systems, Dev B = content)
-4. **Start Roblox dev** with map files + basic systems
-5. **Iterate & balance** as you build
+Design is now 100% — remaining steps shift from *designing* to *building*:
+
+1. **Review this master file + companion docs** with team (Economy Balancing, NPC Dialogue & Quest Text, UI/UX Design)
+2. **Split into modular docs** for hand-off (08-ZONES-DETAIL, 10-MONSTER-SYSTEM, etc.) if the team finds the master file unwieldy during implementation
+3. **Assign responsibilities** (Dev A = systems, Dev B = content) per the ModuleScript boundaries already defined in Technical Notes
+4. **Start Roblox dev** with map files + basic systems (Phase 1 of Development Checklist)
+5. **Resolve the one open design question:** fast travel between maps (flagged in `Lost_Soul_UIUX_Design.md`) — needs a decision before World Map UI implementation
+6. **Iterate & balance** as you build — every formula in this bible is a first-pass tuning lever, not a guarantee (see Progression Pacing and Economy Balancing docs for how to read the tuning notes)
 
 ---
 
