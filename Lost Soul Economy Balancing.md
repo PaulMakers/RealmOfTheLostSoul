@@ -50,13 +50,18 @@
 
 **Base Formula:**
 
+> **Fixed:** the previous formula here was `Base × (100 + Enemy_Level) × Luck_Modifier` with Base=10 — at Enemy_Level 1 that computes to 1010 gold, which is ~50× higher than the 10-20 gold the Breakdown by Rank table right below it (and the Farming Speed table, and every worked example in this doc) actually use. The table was always the real source of truth; the formula just didn't match it. Rewritten below so the formula and the table agree by construction — the table's per-rank Level/Gold ranges ARE the formula's inputs, not a separate hand-tuned set of numbers.
+
 ```text
-Gold per kill = Base × (100 + Enemy_Level) × Luck_Modifier
-Base = 10 (global constant)
+Gold per kill = Lerp(Enemy_Level, Rank_Min_Level, Rank_Max_Level, Rank_Min_Gold, Rank_Max_Gold) × Luck_Modifier
+
+Lerp(level, L0, L1, G0, G1) = G0 + (level − L0) / (L1 − L0) × (G1 − G0)
 Luck_Modifier = 1 + (Player_LUK × 0.1%)
 ```
 
-### Breakdown by Rank
+Look up the enemy's rank in the table below, then linearly interpolate its gold value between the rank's min and max level.
+
+### Breakdown by Rank (formula inputs — this table IS the source of truth)
 
 | Rank | Level | Gold Per Kill (base, no luck) | Notes |
 |---|---:|---:|---|
@@ -65,7 +70,9 @@ Luck_Modifier = 1 + (Player_LUK × 0.1%)
 | C | 25-45 | 50-150 | Mid-game farming |
 | B | 45-70 | 150-350 | Late mid-game |
 | A | 70-100 | 350-1000 | High-level farming |
-| S | 100+ | 1000-2000 | Endgame elite farming |
+| S | 100-150 | 1000-2000 | Endgame elite farming |
+
+**Worked example of the formula itself:** a Rank C enemy at Level 35 (C spans Level 25-45, Gold 50-150): `50 + (35−25)/(45−25) × (150−50) = 50 + 0.5×100 = 100 gold`, before Luck_Modifier. This is what the "Gold/Hour (base)" column in the Farming Speed table below and the worked examples further down already assume — they were internally consistent with each other, only the top-line formula was wrong.
 
 ### Farming Speed (Monsters/Hour)
 
@@ -467,8 +474,6 @@ NPC_Sell_Price = Item_Base_Value × Rarity_Multiplier
 - Normal supply (300-1000 units): ×1.0
 - Low supply (<100 units): ×1.5-2.0
 
----
-
 ## Player Shop Pricing
 
 **Commission:** 10% of selling price (paid by seller)
@@ -494,8 +499,6 @@ NPC_Sell_Price = Item_Base_Value × Rarity_Multiplier
 
 - Listing at 900 gold (Uncommon): 900 - 90 (commission) - 300 (NPC value) = **510 profit vs NPC**
 
----
-
 ## Guild Shop Pricing
 
 **Commission:** 5% per transaction (paid by seller)
@@ -510,8 +513,6 @@ NPC_Sell_Price = Item_Base_Value × Rarity_Multiplier
 - Profit vs NPC: 507.5 gold
 
 **Guild Shop Strategy:** Good for bulk selling, steady revenue
-
----
 
 ## Merchant Guild Benefits
 
@@ -561,8 +562,6 @@ NPC_Sell_Price = Item_Base_Value × Rarity_Multiplier
 - Buff potions for PvP
 - Repair costs (if implemented later)
 
----
-
 ## Inflation Monitoring
 
 **Weekly Checkpoints:**
@@ -606,8 +605,6 @@ Inflation_Rate = (Average - Expected) / Expected
 - Can afford: Full Rare armor set (2300 gold) + Rare weapon (950 gold)
 - Time to reach: ~30-50 hours play time
 
----
-
 ## Mid Game (Lv 30-75)
 
 **Gold Income:**
@@ -631,8 +628,6 @@ Inflation_Rate = (Average - Expected) / Expected
 - Player has: 500000-800000 gold accumulated
 - Can afford: Epic full set (5800 gold) + Epic weapon (2000 gold) + accessories
 - Total gear investment: ~12000 gold (manageable)
-
----
 
 ## Late Game (Lv 75-150)
 
@@ -684,8 +679,6 @@ Inflation_Rate = (Average - Expected) / Expected
 
 **Progress:** After 10 days (20 hours): 7500 gold → Can buy Uncommon weapon (350g) or upgrade path
 
----
-
 ## Casual Player (Lv 50)
 
 **Weekly Session:** 8 hours (2 hrs/day × 4 days)
@@ -707,8 +700,6 @@ Inflation_Rate = (Average - Expected) / Expected
 
 **Monthly:** ~100000 gold accumulation → Can afford Rare equipment (2300g) + maintain gear
 
----
-
 ## Hardcore Player (Lv 100)
 
 **Daily Session:** 5 hours play time
@@ -729,8 +720,6 @@ Inflation_Rate = (Average - Expected) / Expected
 **Net:** +60000 gold daily → 1.8M gold monthly
 
 **Status:** Wealthy, can craft high-tier items, fund alts
-
----
 
 ## Economy Trader (Lv 75)
 
