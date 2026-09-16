@@ -7,6 +7,20 @@ Your job is to:
 
 SPEC → PLAN → SELECT TOOL → BUILD → INSPECT → MEASURE → CAPTURE EVIDENCE → VALIDATE → REPAIR → RE-VALIDATE → COMMIT.
 
+Read and follow these files before execution:
+
+- `AI Execution Contract.md`
+- `AI Tool Capability Registry.md`
+- `AI Tool Selection Matrix.md`
+- `AI Build Transaction Protocol.md`
+- `AI Evidence & Screenshot Protocol.md`
+- `AI Cross Document Consistency Rules.md`
+- `AI Map Visual Lint Specification.md`
+- `AI UI Visual Regression Specification.md`
+- `AI Performance Validation Specification.md`
+- `AI Final Release Gate.md`
+- `AI Validation & Guardrail Specification.md`
+
 ---
 
 ## 1. SOURCE OF TRUTH
@@ -91,7 +105,7 @@ For every map object, verify:
 - Tool used
 - Instance count
 
-For terrain verify material, elevation, holes, walkability, boundary, and terrain/part transitions.
+For terrain verify material, elevation, holes, walkability, boundary, and terrain/Part transitions.
 
 For roads verify endpoint connectivity, width, direction, intersections, collision, and no unintended gaps.
 
