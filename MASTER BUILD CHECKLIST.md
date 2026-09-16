@@ -1,9 +1,11 @@
 # Realm of the Lost Soul — Master Build Checklist
 
 **Branch:** `chore/reorganize-specs`
-**Status:** Audit baseline prepared; Roblox Studio build not started.
+**Status:** Phase 0 audit in progress; Roblox Studio build not started.
 
 ## Phase 0 — Specification Consistency
+
+### Authority / dependency baseline
 
 - [x] README.md verified
 - [x] DOCUMENT MAP.md verified
@@ -11,7 +13,7 @@
 - [x] Map Construction Specification.md verified as authoritative construction specification
 - [x] Canonical UI/UX document verified: `Lost Soul UI UX Design.md`
 - [x] Legacy UI/UX filename retained only as compatibility stub
-- [x] DOCUMENT MAP UI/UX authority reference aligned to canonical filename
+- [x] README/DOCUMENT MAP UI/UX authority references aligned to canonical filename
 - [x] AI Execution Contract and Master Execution Prompt verified
 - [x] AI Tool Capability Registry and Tool Selection Matrix verified
 - [x] AI Build Transaction Protocol verified
@@ -22,12 +24,32 @@
 - [x] AI Performance Validation Specification verified
 - [x] AI Validation & Guardrail Specification verified
 - [x] AI Final Release Gate verified
-- [ ] Full specialized-spec cross-audit completed
-- [ ] Formula/example consistency audit completed
-- [ ] Open decisions catalogued and dependency-blocked stages marked
-- [ ] Phase 0 validation report generated
+
+### Cross-audit / reconciliation
+
+- [ ] LostSoul ↔ Economy cross-audit complete
+- [ ] LostSoul ↔ Map specifications cross-audit complete
+- [ ] City Content ↔ NPC/Quest ↔ Economy cross-audit complete
+- [ ] UI/UX ↔ UI Construction ↔ UI Visual Style cross-audit complete
+- [x] AI execution ↔ Tool Matrix ↔ Validation/Evidence pipeline cross-audit complete
+- [ ] Full formula audit completed
+- [ ] All worked examples reconciled against their formulas
+- [ ] LUK/gold modifier examples reconciled
+- [ ] NPC buy/sell/fallback terminology normalized
+- [ ] Gross/net shop examples reconciled
+- [x] Open Decision register created in `PHASE 0 AUDIT REPORT.md`
+- [ ] Every open decision has owner, scope, dependency impact, and status verified
+- [ ] Phase 0 validation report updated after all reconciliation work
 
 **Phase 0 status:** IN PROGRESS
+
+**Current known audit findings:**
+- Economy LUK formula is `1 + (Player_LUK × 0.1%)`; existing +10/+30 LUK worked examples are arithmetically inconsistent.
+- 20 LUK on 3000 base gold/hour yields 3060 gold/hour under the stated formula, not 3006.
+- Economy contains multiple NPC buy/sell/fallback conventions that require terminology normalization before implementation.
+- City Content Addendum retains explicit open decisions for trainer placement, Colosseum footprint, quality probability curve, and related pricing confirmation.
+
+**Phase 0 gate:** COMPLETE only when every required audit item above is PASS, all blocking conflicts are resolved or explicitly scoped, all open decisions are registered, and no Roblox Studio build/change has occurred before Phase 1 authorization.
 
 ## Phase 1 — Repository / Project Foundation
 
@@ -240,6 +262,8 @@ For each major construction operation:
 - `SCREENSHOT EVIDENCE:`
 - `STATUS:`
 
-## Current Open Decisions
+## Execution invariant
 
-- Fast travel behavior remains `OPEN DECISION` in the canonical UI/UX specification and must not be finalized until defined upstream.
+`SPEC → PLAN → TOOL SELECTION → BUILD → INSPECT → MEASURE → EVIDENCE → VALIDATE → REPAIR → RE-VALIDATE → COMMIT`
+
+No Roblox Studio build or implementation is authorized until Phase 0 reaches PASS.
