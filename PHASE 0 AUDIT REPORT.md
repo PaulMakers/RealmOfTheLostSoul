@@ -65,11 +65,30 @@ For the Rank C example with 3000 base gold/hour and 20 LUK, the formula gives **
 
 **Action:** reconcile these examples before Phase 0 completion. No gameplay implementation should encode the inconsistent example values.
 
+### Confirmed arithmetic/pacing inconsistency: EXP progression
+
+`LostSoul.md` defines:
+
+`EXP per kill = Enemy_Level × 15`
+
+and also claims early progression is approximately **1 hour per level**. The same document's validation table instead yields:
+
+- Lv 1 → 2: 100 EXP / 900 EXP/hr = **~6.7 minutes**, not ~1 hour.
+- Lv 5 → 6: 1,540 EXP / 4,500 EXP/hr = **~20.5 minutes**, not ~1 hour.
+- Lv 10 → 11: 6,300 EXP / 7,500 EXP/hr = **~50.4 minutes**, which is near the stated target.
+
+The document currently says the first-pass formula "roughly holds up" the ~1 hour claim, but the Lv 1 and Lv 5 examples do not support that statement. This is a source-spec reconciliation issue and must be resolved before implementation of progression pacing.
+
+**Action:** decide whether the authoritative target is the stated time-per-level curve or the current EXP formula/table, then propagate the chosen authority to the worked validation examples. Do not silently change either design target during Phase 0.
+
 ### Other numerical reconciliation candidates
 
 - Economy uses multiple notions of NPC buy/sell/fallback pricing. The labels and examples need one unambiguous direction: player buys from NPC vs player sells to NPC.
-- The City Content Addendum specifies +20% NPC fallback markup while some older economy examples still use baseline values. The applicable baseline and fallback convention must be made explicit wherever examples remain.
-- Player Shop trader examples mix gross transaction value, post-tax proceeds, and tax amount. These should be normalized so every example states whether a value is gross or net.
+- The Equipment Pricing Curve is now described as an NPC fallback baseline with +20% markup, but the generic NPC Shop Pricing example still states an Iron Sword NPC Sell price of 600g while the City Content fallback convention makes the corresponding fallback purchase 720g. The distinction between generic base value, NPC buyback, and NPC fallback sale price must be explicit.
+- Player Shop trader examples mix gross transaction value, post-tax proceeds, and comparison against NPC buyback value. Normalize each example so every value is explicitly gross, tax/commission, net proceeds, or NPC buyback/fallback value.
+- Player Shop and Guild Shop examples are arithmetically consistent on commission (500→450; 850→807.5), but their "profit vs NPC" comparison depends on the NPC value convention and therefore remains semantically unresolved.
+- Merchant Guild ROI example uses the 2 percentage-point tax saving correctly as a simple breakeven illustration: 5000 / 0.02 ≈ 250,000, **not 167,000**. The stated `~167000` figure appears to use the wrong percentage difference. This example requires correction or an explicit alternative ROI definition.
+- The NPC fallback +20% markup, material price tables, Monster Meat/Gem tables, and Colosseum numbers are internally readable, but their exact authority relationship and worked examples should be locked before implementation where an older baseline example remains.
 - Progression pacing examples and farming-rate tables should be checked together for unit/time consistency, without changing design targets during this audit.
 
 ## 4. OPEN DECISION register
@@ -93,8 +112,10 @@ For the Rank C example with 3000 base gold/hour and 20 LUK, the formula gives **
 Blocking reasons are specification-audit issues, not missing-file dependencies:
 
 1. LUK/gold worked examples require correction/reconciliation.
-2. Economy pricing examples require normalization of gross/net and NPC buy/sell/fallback terminology.
-3. Explicit City Content open decisions must be registered and respected.
-4. Final Phase-0 validation report must be updated after numerical reconciliation.
+2. EXP progression formula/target worked examples require reconciliation.
+3. Economy pricing examples require normalization of gross/net and NPC buy/sell/fallback terminology.
+4. Merchant Guild ROI example requires arithmetic correction or a clearly defined alternative ROI calculation.
+5. Explicit City Content open decisions must be registered and respected.
+6. Final Phase-0 validation report must be updated after numerical reconciliation.
 
 No Roblox Studio change is authorized by this report.
