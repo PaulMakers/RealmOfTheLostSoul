@@ -11,7 +11,7 @@ This file is the quick-reference map for humans and AI agents.
 | Human City construction | `Human City Build Package (A+B+C).md` | Human City visual bible | Construction package must respect the visual bible |
 | City-specific content | `Lost Soul City Content Addendum.md` | `LostSoul.md`, NPC/quest, economy, UI docs | Additive unless an explicit override is stated |
 | UI visual appearance | `Lost Soul — UI Visual Style Bible.md` | UI UX, UI Construction | Colors, typography, visual language, component style |
-| UI/UX behavior | `Lost Soul UI UX Desain.md` | UI Style Bible, UI Construction | Flows, states, interaction intent |
+| UI/UX behavior | `Lost Soul UI UX Design.md` | UI Style Bible, UI Construction | Flows, states, interaction intent |
 | UI implementation | `Lost Soul UI Construction Specification.md` | UI UX, UI Style Bible, AI UI regression | Roblox hierarchy/layout implementation |
 | Economy | `Lost Soul Economy Balancing.md` | `LostSoul.md`, city addendum | Numeric tuning authority |
 | NPC dialogue / quest text | `Lost Soul NPC Dialog & Quest Text.md` | `LostSoul.md`, city addendum | Content authority for wording and quest text |
@@ -42,8 +42,8 @@ GAME DESIGN
       │                     └──► UI/UX updates where explicitly required
       │
       └── UI ──► UI Visual Style Bible
-                 ├──► UI UX Desain
-                 └──► UI Construction Specification
+                 ├──► UI UX Design
+                 └── UI Construction Specification
 
 AI EXECUTION
   AI Execution Contract
