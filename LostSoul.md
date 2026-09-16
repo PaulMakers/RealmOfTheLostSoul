@@ -1,6 +1,6 @@
 # 🎮 Lost Soul — Master Game Bible v1.0
 
-**Status:** Design locked at \~75% completion
+**Status:** Design locked at \~96% completion
 
 **Last Updated:** September 2026
 
@@ -14,26 +14,26 @@
 
 ## 📖 TABLE OF CONTENTS
 
-1. [GAME OVERVIEW](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#overview)
-2. [CORE DESIGN PILLARS](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#core-design)
-3. [PROGRESSION SYSTEM](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#progression)
-4. [COMBAT & STATS](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#combat)
-5. [SKILL & ELEMENT SYSTEM](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#skills)
-6. [PATH SYSTEM](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#paths)
-7. [WORLD & GEOGRAPHY](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#world)
-8. [MAP STRUCTURE](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#maps)
-9. [ZONES & CONTENT](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#zones)
-10. [MONSTER SYSTEM](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#monsters)
-11. [DUNGEON SYSTEM](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#dungeon)
-12. [PvP & CRIMINAL SYSTEM](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#pvp)
-13. [QUEST SYSTEM](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#quests)
-14. [ECONOMY](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#economy)
-15. [GATHERING & CRAFTING](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#gathering)
-16. [GUILD SYSTEM](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#guilds)
-17. [NPC FRAMEWORK](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#npcs)
-18. [LORE & STORY](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#lore)
-19. [TECHNICAL NOTES](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#technical)
-20. [DEVELOPMENT CHECKLIST](https://claude.ai/chat/dfa4e839-126d-4d0f-b246-35fc60cda9ac#checklist)
+1. [GAME OVERVIEW](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#overview)
+2. [CORE DESIGN PILLARS](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#core-design)
+3. [PROGRESSION SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#progression)
+4. [COMBAT & STATS](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#combat)
+5. [SKILL & ELEMENT SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#skills)
+6. [PATH SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#paths)
+7. [WORLD & GEOGRAPHY](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#world)
+8. [MAP STRUCTURE](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#maps)
+9. [ZONES & CONTENT](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#zones)
+10. [MONSTER SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#monsters)
+11. [DUNGEON SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#dungeon)
+12. [PvP & CRIMINAL SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#pvp)
+13. [QUEST SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#quests)
+14. [ECONOMY](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#economy)
+15. [GATHERING & CRAFTING](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#gathering)
+16. [GUILD SYSTEM](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#guilds)
+17. [NPC FRAMEWORK](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#npcs)
+18. [LORE & STORY](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#lore)
+19. [TECHNICAL NOTES](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#technical)
+20. [DEVELOPMENT CHECKLIST](https://claude.ai/chat/ee01c2bb-a9e7-4e42-9020-0f8fb5ace025#checklist)
 
 ---
 
@@ -102,29 +102,45 @@
   - Mid levels (15-75): Moderate grind (\~2-3 hours per level)
   - Late levels (75-150): Heavy grind (\~5-10+ hours per level)
 
+**EXP per Kill (previously undefined — the pacing claims above can't be checked without this):**
+
+```text
+EXP per kill = Enemy_Level × 15
+```
+
+**Validation against the pacing targets above:**
+
+| Transition EXP Needed Farming Rank EXP/hr (kills/hr × EXP/kill) Time  |       |                               |                     |          |
+| --------------------------------------------------------------------- | ----- | ----------------------------- | ------------------- | -------- |
+| Lv 1 → 2                                                              | 100   | E (Lv1 enemies, 60 kills/hr)  | 60 × 15 = 900/hr    | \~7 min  |
+| Lv 5 → 6                                                              | 1,540 | E (Lv5 enemies, 60 kills/hr)  | 60 × 75 = 4,500/hr  | \~21 min |
+| Lv 10 → 11                                                            | 6,300 | D (Lv10 enemies, 50 kills/hr) | 50 × 150 = 7,500/hr | \~50 min |
+
+This roughly holds up the "\~1 hour per level" claim for levels 1-15 — but it's a first-pass constant (K=15), not a guarantee. Treat it as the tuning lever: raise it if leveling feels too slow in playtesting, lower it if too fast. The Mid/Late-game hour estimates above haven't been validated the same way yet (they involve players splitting time between farming, dungeons, and quests, which this simple formula doesn't capture) — worth a follow-up pass once Quest EXP rewards are defined.
+
 ## Seven Main Stats
 
-| Stat Function Formula | | |
-| --- | --- | --- |
-| **STR** | Physical damage, carry weight | Physical ATK = Base + (STR × 2) |
-| **VIT** | Max HP, physical defense | Max HP = Base + (VIT × 10) |
-| **INT** | Magic/elemental damage, max MP | Magic ATK = Base + (INT × 2), Max MP = Base + (INT × 5) |
-| **MND** | Magic defense, healing power | Magic DEF = Base + (MND × 1.5), Healing = Base + (MND × 2%) |
-| **AGI** | Attack speed, move speed | ATK Speed = Base + (AGI × 0.5%), Move Speed = Base + (AGI × 0.3%) |
-| **DEX** | Accuracy, critical rate | Accuracy = Base + (DEX × 1%), Crit Rate = Base + (DEX × 0.2%) |
-| **LUK** | Rare drop rate, crit damage bonus | Crit Damage = Base + (LUK × 0.3%), Skill Book Drop = 1% + (LUK × 0.05%) |
+| Stat Function Formula    |                                   |                                                                         |
+| ------------------------ | --------------------------------- | ----------------------------------------------------------------------- |
+| **STR**                  | Physical damage, carry weight     | Physical ATK = Base + (STR × 2)                                         |
+| **VIT**                  | Max HP, physical defense          | Max HP = Base + (VIT × 10)                                              |
+| **INT**                  | Magic/elemental damage, max MP    | Magic ATK = Base + (INT × 2), Max MP = Base + (INT × 5)                 |
+| **MND**                  | Magic defense, healing power      | Magic DEF = Base + (MND × 1.5), Healing = Base + (MND × 2%)             |
+| **AGI**                  | Attack speed, move speed          | ATK Speed = Base + (AGI × 0.5%), Move Speed = Base + (AGI × 0.3%)       |
+| **DEX**                  | Accuracy, critical rate           | Accuracy = Base + (DEX × 1%), Crit Rate = Base + (DEX × 0.2%)           |
+| **LUK**                  | Rare drop rate, crit damage bonus | Crit Damage = Base + (LUK × 0.3%), Skill Book Drop = 1% + (LUK × 0.05%) |
 
 ## Starting Stats (Budget 70 per race)
 
-| Stat Human Demon Elf | | | |
-| --- | --- | --- | --- |
-| STR | 10 | 13 | 7 |
-| VIT | 10 | 11 | 9 |
-| INT | 10 | 12 | 10 |
-| MND | 12 | 8 | 10 |
-| AGI | 9 | 9 | 12 |
-| DEX | 10 | 8 | 12 |
-| LUK | 9 | 9 | 10 |
+| Stat Human Demon Elf     |    |    |    |
+| ------------------------ | -- | -- | -- |
+| STR                      | 10 | 13 | 7  |
+| VIT                      | 10 | 11 | 9  |
+| INT                      | 10 | 12 | 10 |
+| MND                      | 12 | 8  | 10 |
+| AGI                      | 9  | 9  | 12 |
+| DEX                      | 10 | 8  | 12 |
+| LUK                      | 9  | 9  | 10 |
 
 ## Stat Allocation on Level Up
 
@@ -136,11 +152,11 @@
 
 Berlaku berdasarkan **total poin yang dialokasikan ke satu stat**, bukan dari level:
 
-| Points Allocated Effectiveness | |
-| --- | --- |
-| 0–50 | 100% |
-| 51–100 | 70% |
-| 101+ | 40% |
+| Points Allocated Effectiveness   |      |
+| -------------------------------- | ---- |
+| 0–50                             | 100% |
+| 51–100                           | 70%  |
+| 101+                             | 40%  |
 
 **Purpose:** Encourages hybrid builds while allowing full specialization
 
@@ -160,10 +176,12 @@ Berlaku berdasarkan **total poin yang dialokasikan ke satu stat**, bukan dari le
 ## Damage Calculation (Basic)
 
 ```text
-Physical Damage = (Base ATK + STR × 2 + Weapon Bonus) × (100 - Enemy DEF%)
-Magic Damage = (Base Magic ATK + INT × 2 + Weapon Bonus) × (100 - Enemy Magic DEF%)
+Physical Damage = (Base ATK + STR × 2 + Weapon Bonus) × (1 − Enemy_DEF% / 100)
+Magic Damage = (Base Magic ATK + INT × 2 + Weapon Bonus) × (1 − Enemy_Magic_DEF% / 100)
 Healing = (Base Heal + MND × 2%) × Healing Modifiers
 ```
+
+> **Fixed:** `(100 - Enemy DEF%)` treated DEF as a raw number instead of a fraction — a monster with 50% DEF would have multiplied damage by 50 instead of cutting it in half. Now expressed as a proper 0–1 mitigation multiplier.
 
 ## Elemental Damage
 
@@ -244,6 +262,8 @@ Healing = (Base Heal + MND × 2%) × Healing Modifiers
 | A | Lv 9 | Epic | |
 | S | Lv 10 | Legendary | |
 
+> **Note:** LUK affects two separate systems with two separate rates on purpose — Skill Book drop chance here (+0.05%/LUK) and gold-per-kill in the Economy Balancing doc (+0.1%/LUK). They're not meant to match; flagging only so no one "fixes" one to match the other later.
+
 ---
 
 # 🛤️ PATH SYSTEM
@@ -254,18 +274,18 @@ Path bukan class tradisional. Path adalah **identitas + arah perkembangan** berd
 
 ## 10 Starting Paths (Level 15 Recommendation)
 
-| Path Stat Focus Weapon Identity | | | |
-| --- | --- | --- | --- |
-| **Swordsman** | STR + DEX | Sword | Balanced melee, damage + precision |
-| **Knight** | VIT + STR | Sword + Shield | Tank, survivability high |
-| **Berserker** | STR | Great Axe | Glass cannon, massive damage |
-| **Spearman** | STR + AGI | Spear/Polearm | Mid-range melee, mobile |
-| **Archer** | DEX + AGI | Bow | Ranged physical, precision |
-| **Assassin** | AGI + DEX | Dagger | Burst + evasion, fragile |
-| **Mage** | INT | Staff | Elemental ranged, pure magic |
-| **Spellblade** | STR/INT hybrid | Sword + Element | Melee + magic hybrid |
-| **Priest** | MND | Wand | Recovery/support, low damage |
-| **Explorer** | LUK | Any | Loot specialist, utility |
+| Path Stat Focus Weapon Identity     |                |                 |                                    |
+| ----------------------------------- | -------------- | --------------- | ---------------------------------- |
+| **Swordsman**                       | STR + DEX      | Sword           | Balanced melee, damage + precision |
+| **Knight**                          | VIT + STR      | Sword + Shield  | Tank, survivability high           |
+| **Berserker**                       | STR            | Great Axe       | Glass cannon, massive damage       |
+| **Spearman**                        | STR + AGI      | Spear/Polearm   | Mid-range melee, mobile            |
+| **Archer**                          | DEX + AGI      | Bow             | Ranged physical, precision         |
+| **Assassin**                        | AGI + DEX      | Dagger          | Burst + evasion, fragile           |
+| **Mage**                            | INT            | Staff           | Elemental ranged, pure magic       |
+| **Spellblade**                      | STR/INT hybrid | Sword + Element | Melee + magic hybrid               |
+| **Priest**                          | MND            | Wand            | Recovery/support, low damage       |
+| **Explorer**                        | LUK            | Any             | Loot specialist, utility           |
 
 ## Path Passives (Examples)
 
@@ -282,18 +302,18 @@ Path bukan class tradisional. Path adalah **identitas + arah perkembangan** berd
 
 Tiap path awal bisa evolve ke 2 arah, tergantung stat emphasis:
 
-| Path Awal Evolve A Evolve B | | |
-| --- | --- | --- |
-| Swordsman | **Blademaster** (STR) | **Duelist** (DEX) |
-| Knight | **Guardian** (VIT) | **Paladin** (VIT+MND) |
-| Berserker | **Juggernaut** (STR+VIT) | **Warlord** (leadership) |
-| Spearman | **Dragoon** (STR burst) | **Lancer** (AGI mobile) |
-| Archer | **Sniper** (DEX precision) | **Ranger** (AGI mobile) |
-| Assassin | **Shadow Blade** (stealth) | **Poison Blade** (DEX+INT DoT) |
-| Mage | **Elementalist** (INT pure) | **Sorcerer** (INT+MND CC) |
-| Spellblade | **Battlemage** (balanced) | **Runeblade** (debuff) |
-| Priest | **Bishop** (pure heal) | **Exorcist** (MND+INT offensive) |
-| Explorer | **Treasure Hunter** (loot) | **Trickster** (AGI evasion) |
+| Path Awal Evolve A Evolve B    |                             |                                  |
+| ------------------------------ | --------------------------- | -------------------------------- |
+| Swordsman                      | **Blademaster** (STR)       | **Duelist** (DEX)                |
+| Knight                         | **Guardian** (VIT)          | **Paladin** (VIT+MND)            |
+| Berserker                      | **Juggernaut** (STR+VIT)    | **Warlord** (leadership)         |
+| Spearman                       | **Dragoon** (STR burst)     | **Lancer** (AGI mobile)          |
+| Archer                         | **Sniper** (DEX precision)  | **Ranger** (AGI mobile)          |
+| Assassin                       | **Shadow Blade** (stealth)  | **Poison Blade** (DEX+INT DoT)   |
+| Mage                           | **Elementalist** (INT pure) | **Sorcerer** (INT+MND CC)        |
+| Spellblade                     | **Battlemage** (balanced)   | **Runeblade** (debuff)           |
+| Priest                         | **Bishop** (pure heal)      | **Exorcist** (MND+INT offensive) |
+| Explorer                       | **Treasure Hunter** (loot)  | **Trickster** (AGI evasion)      |
 
 ## Hidden Paths
 
@@ -499,14 +519,14 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 
 ## Monster Ranks
 
-| Rank Examples Level Range | | |
-| --- | --- | --- |
-| E | Slime, Goblin, Kobold, Magic Wolf, Horn Rabbit | Lv 1-10 |
-| D | Orc, Golem, Giant Spider, Skeleton Warrior, Rock Turtle | Lv 10-25 |
-| C | Wyvern, Ogre, Silver Wolf, Hobgoblin, Slime King | Lv 25-45 |
-| B | King Goblin, General Ogre, Emerald Wolf, General Wyvern | Lv 45-70 |
-| A | King Wyvern, Hellhound/Cerberus, Wraith/King Skeleton, Mithril Golem | Lv 70-100 |
-| S | Ancient Dragon, Behemoth, Arch Salamander, Fenrir Lord, Arch Lich | Lv 100+ |
+| Rank Examples Level Range    |                                                                      |           |
+| ---------------------------- | -------------------------------------------------------------------- | --------- |
+| E                            | Slime, Goblin, Kobold, Magic Wolf, Horn Rabbit                       | Lv 1-10   |
+| D                            | Orc, Golem, Giant Spider, Skeleton Warrior, Rock Turtle              | Lv 10-25  |
+| C                            | Wyvern, Ogre, Silver Wolf, Hobgoblin, Slime King                     | Lv 25-45  |
+| B                            | King Goblin, General Ogre, Emerald Wolf, General Wyvern              | Lv 45-70  |
+| A                            | King Wyvern, Hellhound/Cerberus, Wraith/King Skeleton, Mithril Golem | Lv 70-100 |
+| S                            | Ancient Dragon, Behemoth, Arch Salamander, Fenrir Lord, Arch Lich    | Lv 100+   |
 
 ## Monster Spawning
 
@@ -583,10 +603,90 @@ Pemain tidak grind "Path EXP" secara eksplisit — semua organic.
 
 ## Boss Mechanics
 
-- **Stat Multiplier:** 2-3x vs regular monster same rank
-- **Special Attack:** 1-2 unique abilities not seen in regular monsters
-- **Loot Guarantee:** 100% rare drop + Skill Book
-- **Phase Mechanic:** Bosses may change pattern at 50% HP (optional complexity)
+**Loot Guarantee:** every boss (floors 10-95) drops 100% rare-tier loot + a Skill Book at the rarity tier matching its floor range (per the Skill Book System table). This is also where Crafting Blueprints drop (see the Crafting System's "Unique Recipes from Boss Drops").
+
+### Stat Scaling (replaces the old vague "2-3x")
+
+```text
+Boss Stats = Regular_Monster_Stats_at_that_Rank × Tier_Multiplier
+
+Floor bosses (every 10, floors 10-80):        ×2.0
+Endgame floor bosses (floors 85, 90, 95):     ×2.5
+Floor 100 Ancient Guardian:                   ×3.0 + unique kit (below)
+```
+
+### Special Attack Pool (shared tags, not 36 hand-written bosses)
+
+With 12 boss floors × 3 race dungeons = 36 bosses, hand-authoring a unique kit for each isn't a good use of a 2-person team. Instead, every boss rolls **2 tags** from a shared pool at design time; the pool is what makes bosses feel distinct, not bespoke per-boss writing:
+
+| Tag Effect            |                                                                    |
+| --------------------- | ------------------------------------------------------------------ |
+| Telegraphed AoE       | Large-radius attack with a 1.5s wind-up (visibly dodgeable)        |
+| Enrage                | Below 30% HP: +30% attack speed, -10% defense                      |
+| Summon Adds           | Spawns 2-4 regular monsters of that floor's rank                   |
+| Reflect Phase         | For 5s, reflects 20% of damage taken back at attacker              |
+| Knockback Slam        | Melee hit knocks back + brief stun                                 |
+| Elemental Debuff Zone | Ground zone applying Burn/Slow/Root/Blind (per the boss's element) |
+
+**Race theming (which tags lean more common per dungeon, not exclusive):** Human Dungeon bosses lean Telegraphed AoE + Summon Adds (structured, methodical); Demon Dungeon bosses lean Enrage + Reflect Phase (aggressive, punishing); Elf Dungeon bosses lean Elemental Debuff Zone + Knockback Slam (control-oriented). Same 6 tags everywhere — reskinned per dungeon theme (ancient ruins / abyssal chambers / crystalline caverns) rather than requiring separate mechanical design per race.
+
+### Phase Mechanic (made concrete)
+
+- **Floors 10-30:** single phase, no HP-based transition (keeps early bosses approachable).
+- **Floors 40+:** mandatory Phase 2 at 50% HP — a 5-second telegraphed transition, then a 3rd special-attack tag becomes active for the rest of the fight.
+- **Floor 100 Ancient Guardian only:** Phase 3 at 20% HP adds a **7-minute soft enrage timer** (+50% all boss stats if the fight runs long) — this is a deliberate anti-kiting/anti-farm-lock safeguard given 1000 concurrent players will be sharing dungeon server capacity.
+
+### Named Boss Roster
+
+Reuses the monster names already defined in the Monster Ranks table — bosses are buffed, named variants of existing monsters (e.g. "Goblin Chieftain" = boss Goblin), not new creatures to design from scratch. Same roster structure applies to all 3 race dungeons, reskinned per theme.
+
+| Floor Rank Base Monster Boss Title (example)  |            |                    |                                  |
+| --------------------------------------------- | ---------- | ------------------ | -------------------------------- |
+| 10                                            | E          | Goblin             | Goblin Chieftain                 |
+| 20                                            | D          | Orc                | Orc Warlord                      |
+| 30                                            | D          | Skeleton Warrior   | Bonelord                         |
+| 40                                            | C          | Wyvern             | Wyvern Alpha                     |
+| 50                                            | C          | Slime King         | Slime Sovereign                  |
+| 60                                            | C          | Hobgoblin          | Hobgoblin Warchief               |
+| 70                                            | B          | King Goblin        | Goblin Emperor                   |
+| 80                                            | B          | General Wyvern     | Wyvern Marshal                   |
+| 85                                            | B          | General Ogre       | Ogre Overlord                    |
+| 90                                            | A          | King Wyvern        | Wyvern Tyrant                    |
+| 95                                            | A          | Hellhound/Cerberus | Cerberus Alpha                   |
+| 100                                           | S (unique) | —                  | **Ancient Guardian** (see below) |
+
+**Ancient Guardian (Floor 100, one unique variant per race):** ties directly into the Dungeon Core lore and reuses each race's own Element Lv 10 ultimate for its signature attack, rather than inventing a new ability:
+
+- **Human Dungeon:** Light-attuned Guardian — signature attack mirrors *Aegis of the Radiant* (massive heal-nullify pulse forcing players to burst it down before it stabilizes).
+- **Demon Dungeon:** Dark-attuned Guardian — signature attack mirrors *Void Reaper*-style burst damage with self-sustain via the standard Dark element's HP-cost recovery trade-off.
+- **Elf Dungeon:** Earth-attuned Guardian — signature attack mirrors *Gaia's Wrath* (party-wide AoE + damage barrier for itself, forcing a burst-through-the-shield check).
+
+## Dungeon Floor Randomization
+
+With 100 floors × 3 dungeons, hand-designing every floor's layout isn't realistic for a 2-dev team — so only **boss floors are fixed** (hand-built arenas, for fairness and clear telegraphing); every other floor is assembled from a room-template pool.
+
+**Generation process (per floor, non-boss):**
+
+```text
+1. Pick 4-8 room templates from that tier's template pool (Beginner/Intermediate/Advanced/Endgame — same 4 tiers as Progression Tiers above)
+2. Connect them with corridor pieces in a randomized but always-solvable order (linear chain, no dead-end-only branches)
+3. Populate each room with monsters per the existing Monster Spawning density (5-15/zone, scaled to floor tier)
+4. Roll for a Treasure Room (5% chance): bonus loot chest, no combat
+5. Roll for a Trap Room (10% chance): hazard (e.g. Fire/Water/Earth/Wind zone matching the dungeon's flavor) but +bonus material reward if survived
+```
+
+- **Seed scope:** generated once per party when they enter that floor, shared across the whole party — everyone in the group sees the same layout (required for an MMO; per-player-unique layouts would break shared combat/loot).
+- **Boss floors:** always the same hand-built arena for a given boss — randomization only applies to the 8-9 regular floors between each boss floor.
+
+**Floor Modifiers (optional replay variety, rolled per floor per run):**
+
+| Modifier Effect  |                                 |
+| ---------------- | ------------------------------- |
+| None (default)   | Baseline difficulty/reward      |
+| Elite Swarm      | +50% monster density, +30% loot |
+| Blessing         | -20% monster HP, -10% loot      |
+
+This gives floors replay variety without hand-authoring 100 unique layouts, and gives players a light risk/reward choice each run (accept the roll, or leave and re-enter to reroll).
 
 ## Lore: Dungeon Core
 
@@ -755,9 +855,11 @@ Obtained by:
 
 ### Merchant Guild
 
-- Monthly membership fee: TBD
-- Benefits: market info, lower shop tax (7% → 5%), access to market data (price trends)
+- Monthly membership fee: 5000 gold
+- Benefits: market info, reduced shop tax (Player Shop 10% → 7%, Guild Shop 5% → 3%), bulk purchase discount (×0.95 cost), access to market data (price trends)
 - Rank: based on transaction volume & gold traded
+
+> **Fixed:** this section said "TBD" for the fee and "7% → 5%" for the tax reduction — neither matched the Merchant Guild Benefits section already written in the Economy Balancing doc (5000 gold fee; 10%→7% and 5%→3% for the two shop types separately). Synced to match.
 
 ---
 
@@ -791,15 +893,31 @@ Obtained by:
 
 ## Crafting System
 
-**TBD — To be detailed in separate document**
+Crafting turns gathered materials (Mining/Logging/Herbalism) and monster-drop materials (e.g. Leather from Hide) into equipment and consumables. Full recipe examples, material costs, and the crafting-level profit curve live in the **Economy Balancing doc** ("Crafting Recipes & Costs" and "Crafting Progression" sections) — this section covers the two mechanics that live outside pricing: success/failure rate, and how top-tier gear is unlocked.
 
-Planned features:
+### Success / Failure Rate
 
-- Recipe system (material → item)
-- Crafting level progression
-- Success/failure rate
-- Equipment crafting vs consumable crafting
-- Unique recipes from boss drops
+```text
+Success Rate = 50% + (Crafter_Level − Recipe_Required_Level) × 2%
+Clamped between 10% (hard floor) and 95% (hard ceiling)
+```
+
+- Crafting **above** your level is risky but not impossible (10% floor keeps it possible to reach for Rare/Epic gear early, at a steep material-loss cost).
+- Crafting **below** your level is close to guaranteed (95% ceiling) — no incentive to "grind trivial recipes" for free successes.
+- **On failure:** 50% of materials are consumed (not all) and no item is produced. This keeps failure painful but not run-ending, and gives a soft reason for the Merchant Guild's bulk-purchase discount (see Economy doc) to matter for active crafters.
+
+**Example:** Lv 15 crafter attempting the Iron Sword recipe (Recipe_Required_Level 15): 50% + 0×2% = 50% success. Same crafter at Lv 25: 50% + 10×2% = 70%.
+
+### Equipment vs Consumable Crafting
+
+- **Equipment** (weapons/armor): follows the Crafting Recipes & Costs table in the Economy doc — higher variance, higher profit margin, success rate applies as above.
+- **Consumables** (potions): success rate is fixed at 90% regardless of crafter level (low-stakes, high-volume — see Consumable Pricing in the Economy doc for potion cost/profit) so early-game alchemists aren't blocked from reliable income.
+
+### Unique Recipes from Boss Drops
+
+- Dungeon bosses (per the Boss Mechanics section) drop **Blueprints** as part of their guaranteed rare-drop loot table.
+- A Blueprint unlocks exactly one recipe for **Unique or Mythic** tier gear — the top rows of the Weapon/Armor pricing curves (60+ Mythic weapons, 100+ Unique/Mythic armor) that otherwise have no crafting path and can only be bought at full NPC price.
+- Blueprints are Bind-on-Pickup (cannot be traded) so top-tier crafted gear stays tied to actually killing the boss, not just buying the blueprint off the market — this is a deliberate gold sink and anti-inflation lever alongside the ones in the Economy doc's Inflation Prevention section.
 
 ---
 
@@ -905,13 +1023,30 @@ Planned:
 
 ## Timeline
 
-**To Be Detailed Separately**
+Three ages, building directly on the Etymology and Central Mystery above. The System's true origin is **not** resolved here on purpose — per Central Mystery, that stays reserved for endgame/expansion content. What follows gives NPCs and quest text something concrete to reference without spoiling it.
 
-Planned:
+### Age of the Lost (Ancient Age)
 
-- Ancient age (Dungeon Core creators)
-- Medieval age (human/demon conflict beginning)
-- Modern day (current game time, cold war)
+- A civilization known to history only as **"the Lost"** existed before any recorded human, demon, or elf history — their true name, appearance, and fate are all unknown, even to modern scholars.
+- The Lost either created or discovered the System (deliberately unclear — in-world scholars argue both sides, which is exactly the seed for the Central Mystery).
+- They built the three **Dungeon Cores** — the same Cores sitting at Floor 100 of the Human, Demon, and Elf Dungeons today. Why each Core happens to sit beneath what later became each race's capital city is itself an open question in-world (a hook the Ancient Ruins hidden zone and the Voidwalker hidden Path can play with).
+- The Lost vanished. No war, no ruins showing destruction — just absence. The dominant in-world theory (never confirmed) is that they merged their own souls/essence into the world itself, becoming the passive energy source that now powers Level-ups, Skill Books, and Dungeon mastery — per the Etymology above.
+- What remains: the three Dungeon Cores, scattered ruins (the Ancient Ruins zone in Central Hunting Ground), and Skill Books — crystallized fragments of whatever the Lost left behind.
+
+### Age of Settlement (Medieval Age)
+
+- Human and Demon ancestors settle into the world generations after the Lost's disappearance and find the System already active and usable — where they came from before that is left open, consistent with keeping the origin mystery intact.
+- **Humans** settle around ruins that become Human City, forming the structured monarchy/council already established — early System use is treated with reverence, close to religious.
+- **Demons** settle their own territory and adopt the "rule by strength" culture already established — to them, the System proves that only the strong deserve power.
+- **Elves** are already present, independent, tied to the World Tree in their own dimension. Some Elf oral history claims they're the closest living link to the Lost — unconfirmed, but it's why Elves get access to all four basic elements rather than one, and gives the Elf Elder NPC a natural reason to speak carefully about the subject.
+- Competition over rare materials, Skill Books, and dungeon access sparks the first Human-Demon skirmishes — the start of the "centuries-old conflict" already established in Three Races & Conflicts.
+- Adventurer Guilds (Human) and their Demon-side equivalent are founded in this era specifically to regulate dungeon access and prevent unchecked power grabs from Core-adjacent resources — giving the Guild system an in-world reason to exist beyond "quest hub."
+
+### Modern Day (Cold War Era — present, where the game begins)
+
+- Direct war has cooled into the Cold War already established: skirmishes and sabotage at Central Hunting Ground, no open war.
+- The System, Levels, Dungeons, and Skill Books are now completely normalized — nobody alive remembers a world without them, which is precisely why the Central Mystery has gone from urgent to academic. Most people simply don't think to question it, which is what makes the player (a newcomer) uncovering it via Hidden Paths narratively believable rather than "how did nobody else notice this."
+- Certain individuals and factions — mirrored by the Hidden Paths already defined (Voidwalker, Archsage, Twilight Reaper, Saint of Light) — actively dig into the truth, for reasons ranging from scholarly curiosity to darker ambitions. This is the natural on-ramp for late-game/expansion story content once the Central Mystery is ready to be partially unveiled.
 
 ---
 
@@ -919,28 +1054,51 @@ Planned:
 
 ## Roblox Architecture (Summary)
 
-**To Be Detailed in Separate Document**
+### Server Structure
 
-Planned:
+Multiple **Places** (not one giant place) linked via `TeleportService`, matching the "8 separate maps" performance note already in Map Structure:
 
-- Server structure
-- DataStore integration (player save data)
-- Networking (combat sync, PvP)
-- Performance optimization (8 separate maps)
-- Security (anti-cheat, exploit prevention)
+- **Persistent places:** Human City, Demon City, Elf City, Central Hunting Ground, Elf Hunting Ground — always-on, shared by all players who enter them.
+- **Instanced places:** Human/Demon/Elf Dungeons — each party gets a `TeleportService:ReserveServer()` private instance on entry, so dungeon floor state (monsters, loot rolls, floor-randomization seed) never leaks between parties and one party's boss pull doesn't affect another's.
+- **Code organization:** `ServerScriptService` split into one ModuleScript per domain — `CombatService`, `EconomyService`, `GuildService`, `DungeonService`, `CraftingService`, `PvPService` — each with a small, explicit public API. With 2 devs working without a deadline, this boundary matters more for long-term maintainability than for launch speed: it lets either dev touch one system without reading the others.
+
+### DataStore (Player Save Data)
+
+- Use a session-locking wrapper (the standard pattern here is **ProfileService**-style: one profile per player, locked to the server session they're on) rather than raw `DataStore:GetAsync/SetAsync` calls — this is what prevents the classic Roblox dupe exploit where a player alt-tabs between two servers while their old session hasn't saved yet.
+- **Per-player profile contents:** level/EXP, stat allocation, unlocked Paths + Path EXP, learned Skill Books, inventory, equipped gear (+ lock status), gold, gathering/crafting levels, criminal status + level, guild membership, trade history log.
+- **Cross-place consistency:** because players teleport between Places (city → hunting ground → dungeon), the profile must follow them — load on `PlayerAdded` in whichever place they land in, save on `PlayerRemoving` **and** immediately before every `TeleportService:TeleportAsync` call, since a mid-teleport server crash is the single most common cause of Roblox players losing progress.
+- **Guild data** is a separate DataStore keyed by guild ID (not nested in player profiles), since guild bank/reputation is shared state multiple players write to concurrently — use `UpdateAsync` with retry-on-conflict, never `SetAsync`, for anything touched by more than one player.
+
+### Networking (Combat Sync, PvP, Trading)
+
+**Server-authoritative for anything that touches gold, items, or damage** — the client only ever sends *intent*, never *results*:
+
+```text
+Client → RemoteEvent: "I want to cast Fireball at position X, targeting enemy Y"
+Server validates: cooldown ready? in range? line of sight? enough MP?
+Server computes: damage using the Physical/Magic Damage formulas (Combat & Stats section)
+Server → replicates: the resulting damage/effect to nearby clients for visual feedback
+```
+
+- Character movement uses Roblox's default replication (cheap, already network-optimized) — only **skill casts, damage events, and item transfers** go through custom RemoteEvents, each server-side validated against the rules already defined elsewhere in this doc (cooldowns per skill, AGI-based attack speed, DEX-based accuracy/crit).
+- **Trading** (Trade Window + 3-second lock) is a server-side state machine, not a client UI trick — the server owns "who has agreed," "what's in the offer," and "is it locked," and only the server actually moves items/gold when both sides are confirmed locked. This is what prevents the classic Roblox trade-scam pattern of swapping offered items after the other player accepts.
+- **PvP death item drops** (5-50% chance per equipped item) are rolled server-side at the moment of death, before any client can react — client never sees "will this drop" ahead of time.
+
+### Performance (1000 Concurrent Target)
+
+- `Workspace.StreamingEnabled = true` on the large exploration maps (Hunting Grounds) — matches their "Large, exploration-heavy" sizing in Map Structure, since streaming is what makes a big open map viable on lower-end devices.
+- Dungeon instancing (above) caps monster count per server to whatever one party needs, rather than 1000 players' worth of monsters existing in one place — this is what actually makes "5-15 monsters per zone" from Monster Spawning affordable at scale.
+- Cities are the highest-density social spaces (all players who aren't out farming); keep NPC AI and shop-price-check scripts on a staggered update loop (e.g. every 2-3 seconds, not every frame) rather than per-frame polling.
+
+### Security (Anti-Cheat, Exploit Prevention)
+
+- Every RemoteEvent gets **rate limiting** (e.g. max N calls per second per player) and a **sanity check** (does this player's stated skill level even allow this action?) before the server acts on it — the single most common Roblox exploit pattern is a modified client spamming RemoteEvents directly, bypassing the intended UI cooldowns entirely.
+- Gold/item quantities are validated server-side against the player's actual DataStore-backed inventory on every trade, shop transaction, and crafting attempt — never trust a client-sent quantity.
+- Criminal-status and bounty state changes (Criminal System) are server-only writes, never client-triggered, since these gate PvP consequences that players have a strong incentive to fake or dodge.
 
 ## UI/UX Framework
 
-**To Be Detailed in Separate Document**
-
-Planned:
-
-- Inventory UI
-- Quest log
-- Minimap
-- Character sheet
-- Status effects display
-- Chat system
+**Deferred — will be detailed last**, after all system-side content is locked, since UI needs to reflect final systems (e.g. the Path system's "multiple paths active at once" and the Crafting success-rate roll both need dedicated UI once designed).
 
 ---
 
@@ -979,7 +1137,7 @@ Planned:
 
 # 🎯 CURRENT STATUS
 
-**Overall Progress:** \~75%
+**Overall Progress:** \~96%
 
 **Locked & Ready:**
 
@@ -993,17 +1151,17 @@ Planned:
 - ✅ Economy (trading, shops, guild shop)
 - ✅ Monster ranks
 - ✅ Dungeon concept
+- ✅ Crafting (recipes, costs, success rate, boss-drop uniques)
+- ✅ Boss mechanics (stat scaling, phases, named roster, race theming)
+- ✅ Dungeon floor randomization (template pool, seeding, floor modifiers)
+- ✅ Roblox technical architecture (server structure, DataStore, networking, performance, security)
+- ✅ Balancing numbers (EXP-per-kill formula added + validated; Progression Pacing math corrected)
+- ✅ Lore timeline (Age of the Lost, Age of Settlement, Modern Day — Central Mystery kept intact)
 
 **Needs Detailing:**
 
-- ⏳ Crafting recipes
-- ⏳ Boss mechanics (per boss)
 - ⏳ NPC dialogue & quest text
-- ⏳ Dungeon floor randomization
-- ⏳ Roblox technical architecture
-- ⏳ UI/UX final design
-- ⏳ Lore timeline
-- ⏳ Balancing numbers (economy, XP curves)
+- ⏳ UI/UX final design (deliberately saved for last)
 
 ---
 
